@@ -13,3 +13,6 @@ elif grade > 60:
     print ("You got a D!")
 else:
     print ("You didn't pass this time.")
+
+
+#I did this one on my own, and had help from the TA's during study hall on the other 2 assignments. 
