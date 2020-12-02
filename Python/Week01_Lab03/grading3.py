@@ -3,7 +3,7 @@
 
 while True:#I'm using a while loop so that the loop will repeat
 
-    grade = input("Please enter your grade as a number between 0 and 100: \n>")#have the user input their grade as a number
+    grade = input("Please enter your grade as a number between 0 and 100. When done, type done: \n>")#have the user input their grade as a number
     x = grade.isdigit()#our new variable x will check if the grade is a digit or not
     if x:#if x is true, continue to the statements below. Otherwise, go to the else statement at the bottom.
         grade = int(grade)#convert the grade back into an integer once it passes the test
@@ -31,4 +31,7 @@ while True:#I'm using a while loop so that the loop will repeat
         else:
             print ("You didn't pass this time.")
     else:
+        if grade == "done":
+            print("Thank you!")
+            break
         print("Please enter a valid number: ")#If a statement is entered that is not a number between 0 and 100, the program will ask for a valid number, and won't end until it receives a valid number.
