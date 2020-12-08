@@ -28,15 +28,19 @@ divide it by %25 to get the remainder for other coins.
 
 
 
-#Still working on it. 
+
 
 def get_coins(data):
     '''Tells you the smallest combination of coins needed to make a selected dollar/cent amount'''
     data = int(data * 100) #multiply it by 100 to get the number of pennies. 
-
-    quarters = data // 25
-   
-    data %= 25#same as data = data%25
+    quarters = data // 25#floor divide by 25 to get the number of quarters as a whole number without a remainder
+    data %= 25#same as data = data%25 #data %25 to find out what's left after we divide it by 25. The data variable will decrease as we account for more and more coins.
+    dimes = data // 10
+    data %= 10
+    nickels = data // 5
+    data %5
+    pennies = data
+    print(f"{quarters} quarters, {dimes} dimes, {nickels} nickels, {pennies} pennies")
     
 
 amount = float(input("Please enter an amount of money in the following format: 1.50 \n>"))   #get the amount from the user.
