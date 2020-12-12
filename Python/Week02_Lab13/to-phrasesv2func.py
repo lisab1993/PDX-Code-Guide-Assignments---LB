@@ -32,7 +32,7 @@ tens = {
     6:"sixty",
     7:"seventy",
     8:"eighty",
-    9:"niney",
+    9:"ninety",
 }
 
 
@@ -50,6 +50,8 @@ def number_to_phrase(number):
             return single[number]
         elif tens_digit == 1:#if the tens place is 1, look for the dictionary for that specific group of ten.
             return teens[number]
+        elif tens_digit > 0 and ones_digit == 0:#60
+            return tens[tens_digit]
         else: 
             return tens[tens_digit] + "-" + single[ones_digit]#otherwise, find the phrase that matches the tens place, and the ones place, and concatenate them together
     else:
@@ -58,10 +60,11 @@ def number_to_phrase(number):
         elif tens_digit== 0 and ones_digit > 0:#101
             return single[hundreds_digit] + " hundred and " + single[ones_digit]
         elif tens_digit == 1:#115
-            return single[hundreds_digit] + "hundred and " + teens[teens_special]
+            return single[hundreds_digit] + " hundred and " + teens[teens_special]
         elif tens_digit > 1 and ones_digit == 0:#120
-            return single[hundreds_digit] + "hundred and " + tens[tens_digit]
+            return single[hundreds_digit] + " hundred and " + tens[tens_digit]
         else:#125
             return single[hundreds_digit] + " hundred " + tens[tens_digit] + "-" + single[ones_digit]
 
-print(number_to_phrase(999))#nine hundred niney-nine
+
+print(number_to_phrase(715))#seven hundred and fifteen
