@@ -2,21 +2,36 @@
 import requests
 import json
 
+user_tag = input("Please enter a keyword for your quote \n>").lower().strip()#ask the user for their keyword
 
-#comes in as a string
-#take the json, use it's syntax, and make it a python dictionary. 
-#json.loads(string)
-#once it becomes a python dictionary, you're home free.
+loop_control = "yes"
+question = "yes"
 
-response = requests.get("https://favqs.com/api/qotd")#the url gets a random quote from the Internet, which is contained within the page variable
-response_data = json.loads(response.text)#gets us the json of the url. 
-# print(response_data)
+user_page = 1
+while loop_control == "yes":
 
-# tags = input("What would you like your quote to be about? \n>")
+    if question == "yes":
+        user_page += 1
+        print(user_page)
+    else:
+        exit()
+            
+    response = requests.get("https://favqs.com/api/quotes/?", params={ "page":user_page, "filter":user_tag}, headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'},)#the url gets a random quote from the Internet, which is contained within the page variable
+    response = response.json()#convert our url into a json file
+    quotes = response["quotes"]#search through the json file, and find the list called quotes. Place it in its own variable.
 
-find_author = response_data["quote"]["author"]#just like in a python dictionary within a dictionary, access the json file in a similar manner. 
-# print(find_author)
-find_quote = response_data["quote"]["body"]#do the same for the quote. When I looked in the json file, it was called the body.
-# print(find_quote)
-output = (f"{find_quote} - {find_author}.")
-print(output)
+    for i in range(len(quotes)):#iterate through the list called quotes.
+        print(len(quotes))
+        list_items = quotes[i]#quotes of i are the list items. They are integers in the actual data.
+        list_items = (quotes[i]['body'])#finds the key called "body", and puts its value in a variable.
+        author = (quotes[i]["author"])#find the "author" key
+        print()#place a blank space between quotes for readibility.
+        quote_and_author = (list_items + " - " + author)#prints the quote and the author.
+        print(quote_and_author)
+    question = input("Would you like to see the next page? \n>")#after printing out the first page, ask the user if they want to see the next one.
+    
+
+
+
+
+
