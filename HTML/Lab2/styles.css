@@ -1,0 +1,86 @@
+h1 {
+    font-size:75px;
+    color:cornsilk;
+    font-weight: bold;
+    font-family: "Cinzel";
+    text-align: center;
+    text-shadow: -1px -1px 0 darkturquoise,  
+                1px -1px 0 darkturquoise,
+                -1px 1px 0 darkturquoise,
+                1px 1px 0 darkturquoise;   
+}
+
+body {
+    background-image: url(images/galaxy-background.jpg);
+    background-size: cover;
+
+}
+
+/* The nav element lays out the background and format of the links at the top. */
+.top-nav {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-image: url(images/abstract.jpg);
+    height: 75px;
+    border: 1px solid black;
+    margin-bottom: 20px;
+  }
+
+.side-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 250px;
+    background-image: url(images/abstract.jpg);
+    background-size: cover;
+    height: 75px;
+    border: 1px solid black;
+    margin: 25px 20px auto 25px;
+    padding: 10px;
+}
+
+/* The .clickable element alters the visible text that leads to our linked pages. */
+.clickable {
+    color:black;
+    font-family: "Crimson Text";
+    font-size: 30px;
+    font-weight: bold; 
+    text-decoration: none;
+
+}
+
+#cloud-city {
+    width: 500px;
+    margin: 25px 25px auto 25px;
+}
+
+#first-text-content-format {
+    background-color: whitesmoke;
+    font-family: "Crimson Text";
+    font-size: 20px;
+    padding: 10px;
+    overflow-wrap: break-normal;
+    font-weight: bold;
+    margin-top: 25px;
+}
+
+#text-content-format {
+    background-color: whitesmoke;
+    font-family: "Crimson Text";
+    font-size: 20px;
+    padding: 10px;
+    overflow-wrap: break-normal;
+    font-weight: bold;
+    margin: 25px 240px 25px 25px;
+}
+
+
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}

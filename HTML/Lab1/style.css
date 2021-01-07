@@ -1,0 +1,55 @@
+
+.title-format {
+    font-size:20px;
+    color:black;
+    font-weight: bold;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 1px;
+    margin: 1px;
+}
+
+#rounded-image {
+    border-radius: 50%;
+}
+
+body{
+    background-image: url(images.jpg/wood-background.jpg);
+    background-size: cover;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: flex-start;
+}
+
+.list-format {
+    margin-left: 150;
+    overflow-wrap: normal;/*normal will only allow the wrap to happen at natural points in the sentence.*/
+    font-weight: bold;
+    padding: 1px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size:15px;
+}
+
+.biography-text {
+    padding: 1px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    font-size:20px;
+    font-weight: bold;
+    text-align: center;
+    list-style-position: inside;/*the numbers or bullet points will now be centered with the text*/
+}
+
+
+
+blockquote {
+    font-style: italic;
+}
+
