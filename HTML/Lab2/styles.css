@@ -1,3 +1,4 @@
+/* Title at the top.  */
 h1 {
     font-size:75px;
     color:cornsilk;
@@ -16,7 +17,7 @@ body {
 
 }
 
-/* The nav element lays out the background and format of the links at the top. */
+/* Top navigation bar- formatting only. To adjust the font, see .clickable */
 .top-nav {
     display: flex; 
     flex-direction: row;
@@ -24,25 +25,26 @@ body {
     align-items: center;
     background-image: url(images/abstract.jpg);
     height: 75px;
-    border: 1px solid black;
+    border: 3px solid black;
     margin-bottom: 20px;
   }
 
+/* Side navigation bar- formatting only. To adjust the font, see .clickable */
 .side-nav {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     min-width: 250px;
     background-image: url(images/abstract.jpg);
     background-size: cover;
     height: 75px;
-    border: 1px solid black;
+    border: 3px solid black;
     margin: 25px 20px auto 25px;
     padding: 10px;
 }
 
-/* The .clickable element alters the visible text that leads to our linked pages. */
+/* The .clickable element alters the visible text to out links for the top and side navigation. */
 .clickable {
     color:black;
     font-family: "Crimson Text";
@@ -52,13 +54,38 @@ body {
 
 }
 
+/* Aligning the picture of the cloud city, blog post, and side navigation bar. */
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+/* Aligns the pictures at the bottom of the page. */
+.photo-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    margin: 25px 330px 25px 25px;
+}
+
+
+.individual-picture-border {
+    border: 1px solid black;
+}
+
+/* Cloud city picture at the top. */
 #cloud-city {
     width: 500px;
     margin: 25px 25px auto 25px;
+    border: 1px solid black;
 }
 
+/* Alters the content of the top blog post only. All other blog posts fall under the text-content-format id tag. */
 #first-text-content-format {
     background-color: whitesmoke;
+    border: 1px solid black;
     font-family: "Crimson Text";
     font-size: 20px;
     padding: 10px;
@@ -67,20 +94,15 @@ body {
     margin-top: 25px;
 }
 
+/* Alters all blog posts after the top post. */
 #text-content-format {
     background-color: whitesmoke;
+    border: 1px solid black;
     font-family: "Crimson Text";
     font-size: 20px;
     padding: 10px;
     overflow-wrap: break-normal;
     font-weight: bold;
-    margin: 25px 240px 25px 25px;
+    margin: 25px 320px 25px 25px;
 }
 
-
-
-.container {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-}
