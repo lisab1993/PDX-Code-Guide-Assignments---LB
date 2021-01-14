@@ -1,0 +1,73 @@
+h1 {
+    font-family: 'MedievalSharp', cursive;
+    font-weight: bold;
+    color: whitesmoke;
+    font-size: 45px;
+}
+
+h2 {
+    font-family: 'MedievalSharp', cursive;
+    font-weight: bold;  
+    color: whitesmoke;
+}
+p {
+    font-family: 'MedievalSharp', cursive;
+    font-weight: bold;
+    font-size: 25px;
+    color: whitesmoke;
+}
+
+body {
+    background-image: url("images/background.jpg");
+    background-size: cover;
+}
+
+.header {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.directions {
+    margin-top: 30px;
+}
+
+.the-three {
+    text-align: center;
+    margin: 50px 100px 100px 100px;
+}
+
+.individual-selections {
+    width: 30%;
+    margin: 50px;
+}
+
+.output {
+    margin-top: 25px;
+    text-align: center;
+    font-family: 'MedievalSharp', cursive;
+    font-size: 40px;
+    color: whitesmoke;
+}
+
+#rock {
+    background-image: url("images/boulder.jpg");
+    background-position: center;
+    padding: 120px;    
+    border-radius: 120px;
+}
+
+#paper {
+    background-image: url("images/paper.jpg");
+    background-position: center;
+    padding: 120px;    
+    border-radius: 120px;
+}
+
+#scissors {
+    background-image: url("images/scissors.jpg");
+    background-position: center;
+    padding: 120px;
+    border-radius: 120px;
+}
+
+
