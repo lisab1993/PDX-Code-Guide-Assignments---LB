@@ -13,22 +13,24 @@ let div_output = document.querySelector('#div_output')
 
 // let selection = ''
 //alternate way to write functions
-const selectRock = function () {
+rock.addEventListener("click", function() {
     let selection = 'rock'
     rps(selection)
-}
-const selectPaper = function () {
+})
+
+paper.addEventListener("click", function(){
     let selection = 'paper'
     rps(selection)
-}
-const selectScissors = function () {
+})
+
+scissors.addEventListener("click", function(){
     let selection = 'scissors'
     rps(selection)
-}
+})
+
 
 
 const rps = function (selection) {
-    // while (true) {
         let choices = ["rock", "paper", "scissors"]// an array of options for the computer to choose from.
         let computerChoice = Math.floor((Math.random() * 3) + 0)// select a random number between 0 and two. The selection is now attached to the computerChoice variable.
         computerChoice = choices[computerChoice] // the computerChoice variable will now use the random number as an index, and an option from the choices array will be held in this variable.
@@ -63,17 +65,6 @@ const rps = function (selection) {
         else if (selection === "scissors" && computerChoice === "paper") {
             div_output.innerText =  "Scissors cuts paper. You win."
         }
-        else {
-            div_output.innerText = undefined
-        }
-    // }
 }
 
 
-
-
-// let input_starting_units = document.querySelector('#input_starting_units')
-// let input_ending_units = document.querySelector('#input_ending_units')
-// let input_distance = document.querySelector('#input_distance')
-// let btn_go = document.querySelector('#btn_go')
-// let div_output = document.querySelector('#div_output')

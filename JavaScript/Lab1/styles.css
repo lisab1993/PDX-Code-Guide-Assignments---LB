@@ -1,20 +1,20 @@
 h1 {
     font-family: 'MedievalSharp', cursive;
     font-weight: bold;
-    color: whitesmoke;
+    color: black;
     font-size: 45px;
 }
 
 h2 {
     font-family: 'MedievalSharp', cursive;
     font-weight: bold;  
-    color: whitesmoke;
+    color: black;
 }
 p {
     font-family: 'MedievalSharp', cursive;
     font-weight: bold;
-    font-size: 25px;
-    color: whitesmoke;
+    font-size: 30px;
+    color: black;
 }
 
 body {
@@ -46,7 +46,7 @@ body {
     text-align: center;
     font-family: 'MedievalSharp', cursive;
     font-size: 40px;
-    color: whitesmoke;
+    color: black;
 }
 
 #rock {
