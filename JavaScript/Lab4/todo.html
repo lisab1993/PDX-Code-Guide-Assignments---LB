@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>To Do List</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- External CSS -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <div class="main">
+
+        <!-- Title and Date  -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>To Do List</h1>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <h3>Today is:</h3>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <input id="input_text" type="date" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Add a Task  -->
+        <div class="container">
+            <h5>What needs to be done?</h5>
+            <div class="input-group mb-3">
+                <input id="add_task" type="text" class="form-control" placeholder="Add a Task" aria-label="Username"
+                    aria-describedby="basic-addon1">
+            </div>
+            <!--  The Add Task Button  -->
+            <button id="btn_add_task" type="button" class="btn btn-primary">Add to List</button>
+        </div>
+
+        <!--First Table -Incomplete Tasks -->
+        <div class="container first_table">
+            <div class="row">
+                <h4>Still To Do:</h4>
+                <table class="table">
+                    <tbody id="first_table_body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Second Table -Completed Tasks  -->
+        <h4>Complete</h4>
+        <div class="container">
+            <div class="row">
+                <table class="table">
+                    <tbody id="completed_table_body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <hr>
+
+
+        <!-- Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+            crossorigin="anonymous"></script>
+        <!-- JavaScript Page -->
+        <script src="todo.js"></script>
+</body>
+
+</html>

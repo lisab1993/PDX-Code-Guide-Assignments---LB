@@ -1,0 +1,25 @@
+.main {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    text-align: center;
+    height: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    background-color: rgb(227, 233, 236);
+}
+
+h1 {
+    margin-top: 40px;
+}
+
+/* Applies to the body and html  */
+/* vh is viewport height  */
+body,html {
+    height: 100%;
+    background-color: lightskyblue;
+    
+}
+
+.first_table {
+    margin-top: 10px;
+}
