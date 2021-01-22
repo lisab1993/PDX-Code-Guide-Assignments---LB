@@ -17,6 +17,8 @@ from_meters = {#convert the user's distance from meters to requested units.
     "inches":39.3701,
 }
 
+
+
 while True:
     starting_units = input("Please select your starting units. Acceptable answers are feet, miles, meters, kilometers, yards, or inches.\n>").lower().strip()#Allow the user to enter the units
     if starting_units not in to_meters:#check to see if their answer is in the dictionary
@@ -33,3 +35,5 @@ while True:
             target_number = in_meters * from_meters[requested_units]#calculate the goal number
             print(f"{desired_distance} {starting_units} is {target_number} {requested_units}.")#display a sentence with the conversion.
             exit()
+
+print(from_meters)
