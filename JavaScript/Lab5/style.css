@@ -1,0 +1,19 @@
+h1 {
+    text-align: center;
+    font-family: 'Belgrano', serif;
+    font-weight: bold;
+}
+
+label {
+    width: 100%;
+    text-align: center;
+}
+
+.output-style {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+.primary-font {
+    font-family: 'Poppins', sans-serif;
+}
