@@ -1,0 +1,118 @@
+
+.top-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 25px;
+    background-color: rgb(114, 154, 230);
+    border-bottom: 1px solid black;
+}
+
+/* Puts the logo and company name next to each other.*/
+.company-name {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    align-items: center;
+    padding: 25px;
+}
+
+/* The phone number has it's own container.*/
+.phone-number-container {
+    font-family: 'Goldman', cursive;
+    font-size: 18;
+}
+
+/* Stylizes the font within the navbar.  */
+.navbar-style {
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: bold;
+    color: rgb(10, 10, 10);
+}
+
+/* Size of the logo.  */
+.logo {
+    max-height: 50px;
+}
+
+/* The quotes above the images in the carousel will be positioned relative to their normal position.  */
+.quotes-container {
+    position: relative;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+    color: black;
+}
+
+/* Places the quote over the image.*/
+.quotes-style {
+    position: absolute;
+    top: 65%;
+    left: 65%;
+    transform: translate(-65%, -65%);
+}
+
+/* Makes the background a transparent circle so we can read the quote.  */
+.quotes-background {
+    background-color: thistle;
+    opacity: .7;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 40%;
+}
+
+/* Use flexbox to get the appointment buttons and the carousel positioned correctly across the page. */
+.main-page-container {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
+    text-align: right;
+    flex-shrink: 3; 
+}
+
+/* Sets the appointment buttons in a column formation */
+.appointment-booking-container {
+    display: flex;
+    flex-direction: column;
+    margin: 35px;
+}
+
+/* Stylize the appointment booking buttons */
+.appointment-booking-text {
+    text-decoration: none;
+    font-family: 'Roboto Slab', serif;
+    font-size: 35px;
+    text-align: center;
+    color: black;
+    padding: 15px;
+    border: 3px solid black;
+}
+
+/* Stylize the background of the appointment buttons.  */
+.appointment-booking-background {
+    background-color: rgb(88, 126, 26);
+    opacity: .7;
+}
+
+
+/* Changes the size of the photos that will go in the carousel.  */
+.carousel-photo-size {
+    width: 600px;
+    border: 1px solid black;
+    text-align: right;
+}
+
+h1 {
+    font-family: 'Goldman', cursive;
+    font-size: 75;
+    font-weight: bold;
+    font-stretch: semi-expanded;
+}
+
+body {
+    background-image: url("images.jpg/summer-grass.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
