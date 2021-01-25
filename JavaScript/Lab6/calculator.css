@@ -1,0 +1,38 @@
+h1 {
+    text-align: center;
+    font-family: 'Dosis', sans-serif;
+    font-size: 55px;
+}
+
+.main {
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    height: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    background-color: rgb(227, 233, 236);
+    padding: 20px;
+    background: rgb(197, 197, 197);
+}
+
+button {
+    width: 90%;
+    margin-top: 3px;
+    background-color: rgb(233, 119, 176) !important;
+    border: 1px solid black !important;
+    font-weight: bold !important;
+}
+
+.equals-button {
+    width: 95% !important;
+}
+
+.screen {
+    border: 1px solid black;
+    height: 100px;
+    border-radius: 5px;
+    width: 98%;
+    margin: 0 auto;
+    background-color: rgb(216, 245, 252);
+}
