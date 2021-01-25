@@ -19,94 +19,117 @@
 <body>
     <h1 class="my-3">calculator</h1>
     <div class="main">
-        <div class="container" id="app">
-            <!-- Screen  -->
-            <div class="column screen">
-                <div class="mt-3">
-                    {{ visible_output }}
-                </div>
-                <div>
-                    {{ output }}
-                </div>
-            </div>
+        <div id="app">
+            <div class="container">
 
-            <!-- Buttons (7,8,9,+) -->
-            <div class="row mt-3">
-                <div class="col-md-3">
-                    <button type="button" v-on:click="calculator(7)" class="btn btn-info">7</button>
+                <!-- Screen  -->
+                <div class="column screen">
+                    <div class="mt-3">
+                        {{ visible_output }}
+                    </div>
+                    <div>
+                        {{ output }}
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <button type="button" v-on:click="calculator(8)" class="btn btn-info">8</button>
+
+                <!-- Buttons (7,8,9,+) -->
+                <div class="row mt-3">
+                    <div class="col-md-3">
+                        <button type="button" v-on:click="calculator(7)" class="btn btn-info">7</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" v-on:click="calculator(8)" class="btn btn-info">8</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" v-on:click="calculator(9)" class="btn btn-info">9</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" v-on:click="math_operator('+')"
+                            class="btn btn-info special_button">+</button>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <button type="button" v-on:click="calculator(9)" class="btn btn-info">9</button>
+
+                <!-- Buttons (4,5,6,-) -->
+                <div class="row mt-3">
+                    <div class="col-md-3">
+                        <button type="button" v-on:click="calculator(4)" class="btn btn-info">4</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" v-on:click="calculator(5)" class="btn btn-info">5</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" v-on:click="calculator(6)" class="btn btn-info">6</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" v-on:click="math_operator('-')"
+                            class="btn btn-info special_button">−</button>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <button type="button" v-on:click="math_operator('+')" class="btn btn-info">+</button>
+
+                <!-- Buttons (1,2,3,x) -->
+                <div class="row mt-3">
+                    <div class="col-md-3">
+                        <button type="button" v-on:click="calculator(1)" class="btn btn-info">1</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" v-on:click="calculator(2)" class="btn btn-info">2</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" v-on:click="calculator(3)" class="btn btn-info">3</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" v-on:click="math_operator('*')"
+                            class="btn btn-info special_button">×</button>
+                    </div>
                 </div>
-            </div>
-            <!-- Buttons (4,5,6,-) -->
-            <div class="row mt-3">
-                <div class="col-md-3">
-                    <button type="button" v-on:click="calculator(4)" class="btn btn-info">4</button>
+
+                <!-- Buttons (0,.,negative,/) -->
+                <div class="row mt-3">
+                    <div class="col-md-3">
+                        <button type="button" v-on:click="calculator(0)" class="btn btn-info">0</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" v-on:click="calculator('.')"
+                            class="btn btn-info special_button">.</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" v-on:click="calculator('-')"
+                            class="btn btn-info special_button">negative</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" v-on:click="math_operator('/')"
+                            class="btn btn-info special_button">÷</button>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <button type="button" v-on:click="calculator(5)" class="btn btn-info">5</button>
+
+                <!-- Buttons (exponent, backspace, clearall, modulus,) -->
+                <div class="row mt-3">
+                    <div class="col-md-3">
+                        <button type="button" v-on:click="math_operator('^')"
+                            class="btn btn-info special_button">^</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" v-on:click="backspace" class="btn btn-info special_button">␡</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" v-on:click="clearall" class="btn btn-info special_button">AC</button>
+                    </div>
+                    <div class="col-md-3"><!--Keep the spaces on the math_operator argument for readability-->
+                        <button type="button" v-on:click="math_operator(' modulus ')"
+                            class="btn btn-info special_button">mod</button>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <button type="button" v-on:click="calculator(6)" class="btn btn-info">6</button>
-                </div>
-                <div class="col-md-3">
-                    <button type="button" v-on:click="math_operator('-')" class="btn btn-info">−</button>
-                </div>
-            </div>
-            <!-- Buttons (1,2,3,x) -->
-            <div class="row mt-3">
-                <div class="col-md-3">
-                    <button type="button" v-on:click="calculator(1)" class="btn btn-info">1</button>
-                </div>
-                <div class="col-md-3">
-                    <button type="button" v-on:click="calculator(2)" class="btn btn-info">2</button>
-                </div>
-                <div class="col-md-3">
-                    <button type="button" v-on:click="calculator(3)" class="btn btn-info">3</button>
-                </div>
-                <div class="col-md-3">
-                    <button type="button" v-on:click="math_operator('*')" class="btn btn-info">×</button>
-                </div>
-            </div>
-            <!-- Buttons (0,.,negative,/) -->
-            <div class="row mt-3">
-                <div class="col-md-3">
-                    <button type="button" v-on:click="calculator(0)" class="btn btn-info">0</button>
-                </div>
-                <div class="col-md-3">
-                    <button type="button" v-on:click="calculator('.')" class="btn btn-info">.</button>
-                </div>
-                <div class="col-md-3">
-                    <button type="button" v-on:click="calculator('-')" class="btn btn-info">-</button>
-                </div>
-                <div class="col-md-3">
-                    <button type="button" v-on:click="math_operator('/')" class="btn btn-info">÷</button>
-                </div>
-            </div>
-            <!-- Buttons (^,<=,clearall,=,) -->
-            <div class="row mt-3">
-                <div class="col-md-3">
-                    <button type="button" v-on:click="math_operator()" class="btn btn-info">^</button>
-                </div>
-                <div class="col-md-3">
-                    <!--the operator buttons run the function operator()-->
-                    <button type="button" v-on:click="backspace" class="btn btn-info">␡</button>
-                </div>
-                <div class="col-md-6">
-                    <!--clicking on the equals sign runs the function calculator()-->
+
+                <!-- Equals Button  -->
+                <div class="col-md-12 mt-3">
                     <button type="button" v-on:click="equals" class="btn btn-info equals-button">=</button>
                 </div>
             </div>
+            <!--Closes the container-->
         </div>
-        <!--Closes the container-->
+        <!--Closes the app-->
     </div>
+    <!--Closes main-->
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"

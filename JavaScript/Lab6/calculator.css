@@ -5,7 +5,7 @@ h1 {
 }
 
 .main {
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: 5px;
     text-align: center;
     height: 100%;
@@ -22,10 +22,16 @@ button {
     background-color: rgb(233, 119, 176) !important;
     border: 1px solid black !important;
     font-weight: bold !important;
+    box-shadow: gray !important;
+}
+
+.special_button {
+    background-color: rgb(74, 136, 74) !important;
 }
 
 .equals-button {
-    width: 95% !important;
+    width: 98% !important;
+    background-color: rgb(74, 136, 74) !important;
 }
 
 .screen {
