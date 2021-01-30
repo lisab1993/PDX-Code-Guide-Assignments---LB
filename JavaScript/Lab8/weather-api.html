@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Weather API</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <!-- External CSS  -->
+  <link rel="stylesheet" href="weather-api.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@800&family=Roboto:wght@300&display=swap"
+    rel="stylesheet">
+
+
+</head>
+
+<body>
+  <div id="app" class="main mt-5">
+    <div class="container">
+      <h2>Today is {{ date }}</h2>
+
+      <!-- Temperature in Farenheit and Celsius  -->
+      <div class="row">
+        <div class="col-12 my-3">
+          <div> Temperature: {{ farenheit }} / {{ celsius }} </div>
+        </div>
+      </div>
+
+      <!-- Current Time  -->
+      <div class="row">
+        <div class="col-12">
+          <div> Current Time: {{ time }}</div>
+        </div>
+      </div>
+
+      <!-- Current Weather and Icon  -->
+      <div class="row">
+        <div class="col-12">
+          <div>Current Weather: {{ current_weather }}
+            <img v-bind:src="icon" alt="">
+          </div>
+        </div>
+      </div>
+
+      <!-- Feels Like -->
+      <div class="row">
+        <div class="col-12">
+          <div>Feels Like: {{ feels_like_farenheit }} / {{ feels_like_celsius }}</div>
+        </div>
+      </div>
+
+      <!-- Humidity -->
+      <div class="row">
+        <div class="col-12">
+          <div>Humidity: {{ humidity }}%</div>
+        </div>
+      </div>
+
+      <!-- Wind Speed -->
+      <div class="row">
+        <div class="col-12">
+          <div>Wind is blowing {{ us_wind_speed }}/mph ({{ metric_wind_speed }}/mps)</div>
+        </div>
+      </div>
+
+      <!-- Weekly Forecast  -->
+      <div class="row">
+        <div v-for="(item, index) in forecast" class="col-md-1 forecast-box">
+          {{ item.dates }}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+  <!-- Vue JS - Must come before page javascript -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <!-- Axios -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+    integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+    crossorigin="anonymous"></script>
+  <!-- API Key  -->
+  <script src="secrets.js"></script>
+  <!-- lab js -->
+  <script src="weather-api.js"></script>
+</body>
+
+</html>

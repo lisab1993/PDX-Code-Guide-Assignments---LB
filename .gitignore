@@ -128,7 +128,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-#My practice documents
-practice.py
-practice_2.py
-Python/Week01_Lab03/additional_practice.py
+#Things added to this document:
+secrets.js
+
