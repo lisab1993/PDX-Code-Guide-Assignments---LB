@@ -17,6 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@800&family=Roboto:wght@300&display=swap"
     rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
 
 
 </head>
@@ -24,60 +25,72 @@
 <body>
   <div id="app" class="main mt-5">
     <div class="container">
-      <h2>Today is {{ date }}</h2>
+      <h1>Today is {{ today_date }}</h1>
 
-      <!-- Temperature in Farenheit and Celsius  -->
+      <!-- Current Temperature in Farenheit and Celsius  -->
       <div class="row">
-        <div class="col-12 my-3">
-          <div> Temperature: {{ farenheit }} / {{ celsius }} </div>
+        <div class="col-12 ">
+          <div> Temperature: {{ today_farenheit }} / {{ today_celsius }} </div>
         </div>
       </div>
 
       <!-- Current Time  -->
       <div class="row">
         <div class="col-12">
-          <div> Current Time: {{ time }}</div>
+          <div> Current Time: {{ today_time }}</div>
         </div>
       </div>
 
       <!-- Current Weather and Icon  -->
       <div class="row">
         <div class="col-12">
-          <div>Current Weather: {{ current_weather }}
-            <img v-bind:src="icon" alt="">
+          <div>Current Weather: {{ current_weather }} <br>
+            <img v-bind:src="today_icon" alt="" class="icon">
           </div>
         </div>
       </div>
 
-      <!-- Feels Like -->
+      <!-- Currently Feels Like -->
       <div class="row">
         <div class="col-12">
-          <div>Feels Like: {{ feels_like_farenheit }} / {{ feels_like_celsius }}</div>
+          <div>Feels Like: {{ today_feels_like_farenheit }} / {{ today_feels_like_celsius }}</div>
         </div>
       </div>
 
-      <!-- Humidity -->
+      <!-- Current Humidity -->
       <div class="row">
         <div class="col-12">
-          <div>Humidity: {{ humidity }}%</div>
+          <div>Humidity: {{ today_humidity }}</div>
         </div>
       </div>
 
-      <!-- Wind Speed -->
+      <!-- Current Atmospheric Pressure  -->
       <div class="row">
         <div class="col-12">
-          <div>Wind is blowing {{ us_wind_speed }}/mph ({{ metric_wind_speed }}/mps)</div>
+          <div>Pressure: {{ today_pressure }}</div>
+        </div>
+      </div>
+
+      <!-- Current Wind Speed -->
+      <div class="row">
+        <div class="col-12">
+          <div>Wind Speed: {{ today_us_wind_speed }}/mph ({{ today_metric_wind_speed }}/mps)</div>
         </div>
       </div>
 
       <!-- Weekly Forecast  -->
-      <div class="row">
-        <div v-for="(item, index) in forecast" class="col-md-1 forecast-box">
-          {{ item.dates }}
+      <div class="row mt-3">
+        <div v-for="(item, index) in forecast" class="col-md-1 forecast-box mt-3">
+          <span>{{ item.forecast_dates }} <br></span>
+          <span>HI: {{ item.forecast_max_temp_faren}}/{{ item.forecast_max_temp_cels}} <br></span>
+          <span>{{ item.forecast_weather_condition }} <br></span>
+          <span><img v-bind:src="item.forecast_icon" alt="" class="icon"><br></span>
+          <span>LO: {{ item.forecast_min_temp_faren}}/{{ item.forecast_min_temp_cels}} <br></span>
+          <span>Humidity: {{ item.forecast_humidity }} <br></span>
+          <span>Precipitation: {{ item.forecast_rain_chance }}</span>
         </div>
       </div>
-
-    </div>
+    </div><!--Closes the container-->
   </div>
 
 

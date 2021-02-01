@@ -1,28 +1,38 @@
 .main {
     border: 1px solid black;
-    border-radius: 5px;
+    border-radius: 10px;
     text-align: center;
-    height: 600px;
-    max-width: 850px;
+    min-height: 600px;
+    max-width: 1300px;
     margin: 0 auto;
     padding: 20px;
-    background-color: rgb(215, 232, 233);
+    background-color: rgb(221, 232, 233);
+    font-family: 'Yusei Magic', sans-serif;
 }
 
 .forecast-box {
     border: 1px solid black;
-    border-radius: 5px;
-    height: 150px;
-    width: 90px;
-    margin-left: 10px;
-    margin-right: 10px;
-
+    border-radius: 10px;
+    min-height: 150px;
+    width: 145px;
+    margin: 0 auto;
+    padding: 5px;
+    background-color: whitesmoke;
+    font-family: 'Yusei Magic', sans-serif;
 }
 
 body {
     background-image: url("images/clouds.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-h2 {
-    font-family: 'Inknut Antiqua', serif;
+h1 {
+    font-family: 'Inknut Antiqua', serif !important;
+}
+
+.icon {
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: rgb(0, 0, 0);
 }
