@@ -15,8 +15,7 @@
   <link rel="stylesheet" href="weather-api.css">
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@800&family=Roboto:wght@300&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
 
 
@@ -78,8 +77,15 @@
         </div>
       </div>
 
+      <!-- Introducing the Forecast  -->
+      <div class="row mt-4">
+        <div class="col-12">
+          <h2>This Week Looks Like...</h2>
+        </div>
+      </div>
+
       <!-- Weekly Forecast  -->
-      <div class="row mt-3">
+      <div class="row">
         <div v-for="(item, index) in forecast" class="col-md-1 forecast-box mt-3">
           <span>{{ item.forecast_dates }} <br></span>
           <span>HI: {{ item.forecast_max_temp_faren}}/{{ item.forecast_max_temp_cels}} <br></span>
@@ -90,7 +96,8 @@
           <span>Precipitation: {{ item.forecast_rain_chance }}</span>
         </div>
       </div>
-    </div><!--Closes the container-->
+    </div>
+    <!--Closes the container-->
   </div>
 
 

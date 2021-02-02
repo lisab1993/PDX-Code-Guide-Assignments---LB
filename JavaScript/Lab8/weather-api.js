@@ -27,6 +27,7 @@ let app = new Vue({
     //this method should have been hoisted, but wasn't.
     //Uncaught (in promise) ReferenceError: get_date is not defined
     // at weather-api.js:114
+    //solution: use this.get_date()
 
     // get_date: function(date){
     //   let converted_date = new Date(date * 1000)
@@ -50,6 +51,7 @@ let app = new Vue({
           appid: openweathermap_api_key,
           lang: 'English',
           //there's one for units, but it's going unused because I want to use Farenheit and
+          //if you accidentally commit an API key, go to the website and disable the API key.
         }
 
       }).then(response => {
@@ -57,26 +59,33 @@ let app = new Vue({
 
         // today's datetime
         let unix_timestamp = response.data.current.dt
+
         //current date 
         let datetime = new Date(unix_timestamp * 1000)
-        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-        let today_month = datetime.getMonth() + 1
+        let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        let today_month = datetime.getMonth() 
         today_month = months[today_month]
-        this.today_date = `${today_month}-${datetime.getDate()}-${datetime.getFullYear()}`
+        this.today_date = `${today_month} ${datetime.getDate()}, ${datetime.getFullYear()}`
+
         //current time 
         let hours = datetime.getHours()
         let real_hours = datetime.getHours()
-        let minutes = datetime.getMinutes()
         if(hours === 0){
           real_hours = 12
         } else if (hours > 13) {
           real_hours = hours - 12
         } 
 
+        let minutes = datetime.getMinutes()
+        if(minutes<10){
+          minutes = "0" + minutes
+        }
+        //time of day
         let time_of_day = "AM"
         if(hours >= 12){
           time_of_day = "PM"
         } 
+
         this.today_time = `${real_hours}:${minutes}${time_of_day}`
         
         // current temperature - celsius (converted from Kelvin)
