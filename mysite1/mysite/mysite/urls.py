@@ -17,6 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    # from the polls app
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
+    # from the todoapp 
+    #goes to localhost:8000/
+    path('', include('todoapp.urls'))
 ]
