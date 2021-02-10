@@ -1,0 +1,43 @@
+h1 {
+    font-family: 'Heebo', sans-serif;
+    font-weight: bold;
+    margin-top: 25px;
+}
+
+.standard {
+    font-family: 'Noto Sans HK', sans-serif;
+}
+
+.add-button {
+    font-family: 'Mukta', sans-serif;
+    font-weight: bold;
+    background-color: rgb(166, 219, 250);
+    border-color:royalblue;
+    width: 100%;
+}
+
+.delete-button {
+    font-family: 'Mukta', sans-serif;
+    font-weight: bold;
+    background-color: rgb(255, 77, 91);
+    border-color: rgb(114, 34, 67);
+    color: black;
+}
+
+.done-button {
+    font-family: 'Mukta', sans-serif;
+    font-weight: bold;
+    background-color: rgb(93, 247, 183);
+    border-color: rgb(29, 110, 76);
+    color: black;
+
+}
+
+h2 {
+    font-family: 'Heebo', sans-serif;
+}
+
+
+.new-form-box {
+    border: 1px solid black;
+}
