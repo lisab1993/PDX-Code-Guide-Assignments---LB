@@ -1,0 +1,31 @@
+{% extends 'contactapp/base.html'%}
+
+{% block content %}
+  <h1>Contacts</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+
+        <th scope="col">First</th>
+        <th scope="col">Middle</th>
+        <th scope="col">Last</th>
+        <th scope="col">Email</th>
+        <th scope="col">Detail</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for contact in contact_people %}
+      <tr>
+        <td>{{contact.first_name}}</td>
+        <td>{{contact.middle_name}}</td>
+        <td>{{contact.last_name}}</td>
+        <td>{{contact.email}}</td>
+        <td><a href="{% url 'contactapp:detail' contact.id %}"   class="btn btn-primary">Details</a>
+        </td>
+        <!-- <td><button>button</button></td> -->
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="{% url 'contactapp:create'%}" class="btn btn-primary">Add</a>
+{% endblock %}
