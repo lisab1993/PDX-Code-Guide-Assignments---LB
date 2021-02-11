@@ -1,0 +1,12 @@
+
+.main {
+    text-align: center;
+    margin-left: 200px;
+    margin-right: 200px;
+    padding: 10px;
+}
+
+.cat-box {
+    max-width: 500px;
+}
+

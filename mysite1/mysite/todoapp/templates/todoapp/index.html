@@ -52,11 +52,18 @@
           <button type="submit" class="btn btn-info add-button">Add</button>
         </div>
       </div>
-      <hr>
     </form>
+    <hr>
 
     <!-- The Todo List  -->
     <h2>To Do</h2>
+    <div class="row mt-3">
+      <span class="col-md-3 standard">Item</span>
+      <span class="col-md-3 standard">Priority</span>
+      <span class="col-md-3 standard">Delete Item</span>
+      <span class="col-md-3 standard">Mark as Complete</span>
+    </div>
+    <hr>
     {% for item in todo_items %}
     <div class="row mt-2">
       <!-- Todo Items  -->
@@ -72,17 +79,16 @@
         <a class="btn btn-danger delete-button" href="{% url 'todoapp:delete' item.id %}">Delete</a>
         {% csrf_token %}
       </div>
-
       <!-- Complete Button  -->
       <div class="col-md-3">
         <a class="btn btn-primary done-button" href="{% url 'todoapp:complete' item.id%}">Done</a>
       </div>
+      <hr class="mt-2">
     </div>
     {% endfor %}
-    <hr>
 
     <!-- The Completed List  -->
-    <h2>Completed</h2>
+    <h2 class="mt-5">Completed</h2>
     {% for item in completed_items %}
     <div class="row mt-3">
       <!-- completed item  -->
@@ -100,6 +106,7 @@
       <div class="col-md-3">
         {{ item.completed_date }}
       </div>
+      <hr>
     </div>
     {% endfor %}
 

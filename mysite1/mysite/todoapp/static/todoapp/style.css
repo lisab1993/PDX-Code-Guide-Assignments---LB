@@ -30,14 +30,13 @@ h1 {
     background-color: rgb(93, 247, 183);
     border-color: rgb(29, 110, 76);
     color: black;
+    width: 73px;
 
 }
 
 h2 {
     font-family: 'Heebo', sans-serif;
+    margin-top: 15px;
 }
 
 
-.new-form-box {
-    border: 1px solid black;
-}

@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # from the todoapp 
     #goes to localhost:8000/
-    path('', include('todoapp.urls'))
+    path('todoapp/', include('todoapp.urls')),
+    path('', include('tinyurl.urls')),
 ]
