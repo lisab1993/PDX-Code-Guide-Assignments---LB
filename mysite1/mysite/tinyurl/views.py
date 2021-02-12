@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse
+from django.shortcuts import render, reverse, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import ShortenedURL
 import random, string
@@ -46,7 +46,15 @@ def save_shortened(request):
     return HttpResponseRedirect(reverse("tinyurl:index"))
     
 
-# def redirection (request):
-    #performs the redirecting to the target website
-    #takes a short url as a parameter
-    #include the protocol "https://" in the urls
+def redirection (request, code):
+    # print(request.POST)
+    # takes a short url as a parameter
+    url_short = ShortenedURL.objects.get(code=code)
+    print(code, 'this is code')
+    print(url_short, 'this is url_short')
+    output_url = f'https://{url_short}'
+    
+    # performs the redirecting to the target website
+    return redirect(output_url)
+
+# localhost:8000/redirection/yIUBoW will go to google
