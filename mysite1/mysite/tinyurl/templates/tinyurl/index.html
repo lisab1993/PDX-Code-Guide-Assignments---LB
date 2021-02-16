@@ -1,3 +1,5 @@
+{% load static %}
+
 <!doctype html>
 <html lang="en">
 
@@ -10,39 +12,75 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
+    <!-- External CSS  -->
+    <link rel="stylesheet" type="text/css" href="{% static 'tinyurl/style.css' %}">
+
+    <!-- Google Fonts  -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Mega&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Mega&family=Rubik&display=swap" rel="stylesheet">
+
+    <!-- External JS  -->
+    <link rel="stylesheet" href="{% static 'tinyurl/tinyurl.js' %}">
+
     <title>urlshortener</title>
 </head>
 
 <body>
-    <div class="container">
+    <div class="container my-3">
         <h1>URL Shortener </h1>
+        <!-- User Input  -->
         <form action="{% url 'tinyurl:saving' %}" method="post">
             {% csrf_token %}
             <div class="row">
                 <!-- Long URL Input  -->
                 <div class="col-md-9 mb-3">
-                    <label for="longurl" class="form-label">Enter your long URL here</label>
-                    <input type="text" name="longurl" class="form-control" id="longurl" placeholder="your url here">
+                    <label for="longurl" class="form-label standard-font">Enter your long URL here</label>
+                    <input type="text" name="longurl" class="form-control standard-font" id="longurl"
+                        placeholder="your url here">
                 </div>
                 <!-- Go Button  -->
-                <div class="col-md-3">
-                    <button type="submit" class="btn btn-info">Go</button>
-                </div>
+                <span class="col-md-3 ">
+                    <button type="submit" class="btn btn-info go-button">Go</button>
+                </span>
             </div>
         </form>
+        <br>
+        <hr>
 
+        <!-- Output Display  -->
         {% for url in url_history %}
-        <div class="row">
-            <div class="col-md-6">
+        <!-- Long original code  -->
+        <div class="row mb-3 standard-font">
+            <div class="col-md-3 standard-font">
                 {{url.url}}
             </div>
-            <div class="col-md-6">
-                {{url.code}}
+            <!-- shortened code  -->
+            <div class="col-md-4 standard-font">
+                <a
+                    href="http://127.0.0.1:8000/redirection/{{url.code}}">http://127.0.0.1:8000/redirection/{{url.code}}</a>
             </div>
         </div>
+        <!-- Counter  -->
+        <div class="row mb-3 standard-font">
+            <div class='col-md-2 text-center'>
+                <span>{{ url.counter }}</span>
+            </div>
+            <!-- Delete Button  -->
+            <div class='col-md-3 text-top my-2'>
+                <a class="btn btn-danger delete-button" href="{% url 'tinyurl:delete_item' url.id %}">Delete</a>
+            </div>
+            <!-- use in line js for the copy button  -->
+            <div class='col-md-3 text-center'>
+                <script>navigator.clipboard.writeText('http://127.0.0.1:8000/redirection/{{url.code}}')</script>
+                <button id='copy' type="button" class="btn btn-success copy-button" >Copy</button>
+            </div>
+        </div>
+        <hr>
         {% endfor %}
 
-    </div> {% comment %} closes container  {% endcomment %}
+    </div> {% comment %} closes container {% endcomment %}
+
     <!--  Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"

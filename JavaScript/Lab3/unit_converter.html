@@ -16,12 +16,12 @@
 </head>
 
 <body>
-    <div class="main">
+    <div class="container main mt-5">
         <h2>Unit Converter</h2>
         <!-- Starting and ending units  -->
         <div class="row add-margin">
             <!-- Starting Units  -->
-            <div class="col-md-6 col-xs-12">
+            <div class="col-md-6">
                 <p>Starting Units</p>
                 <select id="input_starting_units" class="form-select" aria-label="Default select example">
                     <option value="meters">Meters</option>
@@ -33,7 +33,7 @@
                 </select>
             </div>
             <!-- Ending Units  -->
-            <div class="col-md-6 col-xs-12">
+            <div class="col-md-6">
                 <p>Ending Units</p>
                 <select id="input_ending_units" class="form-select" aria-label="Default select example">
                     <option value="meters">Meters</option>
@@ -48,19 +48,21 @@
 
 
         <!-- Distance and go button  -->
-        <div class="row distance-style">
-            <div class="col-md-6 col-xs-12">
+        <div class="row my-3">
+            <div class="col-md-10">
                 <input id="input_distance" type="number" class="form-control" placeholder="Distance"
                     aria-label="Distance">
             </div>
-            <div class="col-md-6 col-xs-12">
+            <div class="col-md-2">
                 <button id="btn_go" type="button" class="btn btn-success">Go</button>
             </div>
         </div>
 
         <!-- Output  -->
         <div class="row add-margin">
-            <div id="div_output"></div>
+            <div class="col-md-12">
+                <div class="mb-3" id="div_output"></div>
+            </div>
         </div>
     </div>
 

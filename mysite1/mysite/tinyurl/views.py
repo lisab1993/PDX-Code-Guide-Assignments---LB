@@ -1,5 +1,6 @@
 from django.shortcuts import render, reverse, redirect
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from .models import ShortenedURL
 import random, string
 
@@ -50,11 +51,21 @@ def redirection (request, code):
     # print(request.POST)
     # takes a short url as a parameter
     url_short = ShortenedURL.objects.get(code=code)
-    print(code, 'this is code')
-    print(url_short, 'this is url_short')
+    url_short.counter +=1
+    url_short.save()
+    # print(code, 'this is code')
+    # print(url_short, 'this is url_short')
     output_url = f'https://{url_short}'
     
     # performs the redirecting to the target website
     return redirect(output_url)
 
-# localhost:8000/redirection/yIUBoW will go to google
+
+
+def delete_item(request, url_item_id):
+    url_item = ShortenedURL.objects.get(id=url_item_id)
+    print(url_item)
+    url_item.delete()
+    return HttpResponseRedirect(reverse("tinyurl:index"))
+
+
