@@ -41,4 +41,14 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
 
-    
+def create_user(request):
+    return render(request, 'blog/register.html')
+
+def login(request):
+    return render(request, 'blog/login.html')
+
+def profile(request):
+    return render(request, 'blog/profile.html')
+
+
+

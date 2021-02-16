@@ -6,6 +6,36 @@ urlpatterns = [
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
     path('post/new/', views.post_new, name='post_new'),
     path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
+    
 ]
 
+#register 
+#  no special parameters
 
+#login 
+# password as a parameter from the user database required for access
+
+# profile 
+# only allow the user to see their own profile
+#view profiles by the id
+
+# class BlogPost(models.Model):
+#     title = models.CharField(max_length=350)
+#     body = models.TextField()
+#     user = models.ForeignKey(User, on_delete=models.PROTECT)
+#     public = models.BooleanField(default=False)
+#     date_created = models.DateTimeField(auto_now_add=True)
+#     date_edited = models.DateTimeField(auto_now=True)
+
+#User Database Components:
+# id
+# password
+# last_login
+# is_superuser
+# username
+# last_name
+# email
+# is_staff
+# is_active
+# date_joined
+# first_name
