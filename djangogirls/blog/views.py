@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
-from .models import Post
+from .models import Post, BlogPost
 from django.http import HttpResponse, HttpResponseRedirect
 from django.utils import timezone
 from .forms import PostForm
@@ -11,14 +11,20 @@ def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
 
+
+
 @login_required
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_detail.html', {'post':post})
 
+
+
 @login_required
 def show_create(request):
     return render(request, 'blog/post_create.html')
+
+
 
 @login_required
 def post_new(request):
@@ -34,6 +40,8 @@ def post_new(request):
         form = PostForm()
     return render(request, 'blog/post_create.html', {'form': form})
 
+
+
 @login_required
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -44,10 +52,22 @@ def post_edit(request, pk):
             post.author = request.user
             post.published_date = timezone.now()
             post.save()
-            return redirect('post_detail', pk=post.pk)
+            return redirect('blog:post_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+
+
+
+
+    # author = models.ForeignKey(User, on_delete=models.PROTECT)
+    # title = models.CharField(max_length=200)
+    # text = models.TextField()
+    # created_date = models.DateTimeField(default=timezone.now)
+    # published_date = models.DateTimeField(blank=True, null=True)
+
+
 
 @login_required
 def profile(request):
@@ -62,18 +82,3 @@ def profile(request):
 
 
 
-
-
-#register 
-#  no special parameters
-# path('registration', views.register_user, name='registration'),
-
-#login 
-# password as a parameter from the user database required for access
-# path('login/<str:password>', views.login_user, name='login'),
-
-
-# profile 
-# only allow the user to see their own profile
-#view profiles by the id
-# path('profile/<int:user_id>', views.profile_user, name='profile')

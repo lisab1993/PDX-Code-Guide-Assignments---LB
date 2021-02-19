@@ -4,7 +4,7 @@
 
 {% for post in user_posts %}
 <div>
-    {{post.title}}
+    <a href="{% url 'blog:post_edit' pk=post.pk %}">{{post.title}}</a>
 </div>
 
 {% endfor %}
