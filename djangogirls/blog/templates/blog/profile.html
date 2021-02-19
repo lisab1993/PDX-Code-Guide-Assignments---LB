@@ -2,4 +2,15 @@
 
 {% block content %}
 
+{% for post in user_posts %}
+<div>
+    {{post.title}}
+</div>
+
+{% endfor %}
+
 {% endblock %}
+
+
+
+

@@ -1,23 +1,31 @@
 from django.urls import path
 from . import views
 
+app_name = 'blog'
 urlpatterns = [
     path('', views.post_list, name='post_list'),
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
     path('post/new/', views.post_new, name='post_new'),
     path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
-    
+    path('post/profile/', views.profile, name='profile'),
 ]
 
 #register 
 #  no special parameters
+# path('registration', views.register_user, name='registration'),
 
 #login 
 # password as a parameter from the user database required for access
 
+
 # profile 
 # only allow the user to see their own profile
 #view profiles by the id
+# path('profile/<int:user_id>', views.profile_user, name='profile'),
+
+
+
+
 
 # class BlogPost(models.Model):
 #     title = models.CharField(max_length=350)

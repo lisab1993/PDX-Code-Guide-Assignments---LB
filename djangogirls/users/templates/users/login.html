@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Login Page</h1>
+    {% if display %}
+    <div>{{display}}</div>
+    {% endif %}
+    <form action="{% url 'users:login_user' %}" method='post'>
+        {%csrf_token%}
+        <input type="text" name="username" placeholder="Enter you username"/>
+        <input type="password" name="password" placeholder = "password"/>
+        <button type="submit">Go</button>
+    </form>
+    <div>
+        Don't have an account yet? 
+        <a href="{% url 'users:register_user' %}">Create an Account</a>
+    </div>
+</div>
+{% endblock %}

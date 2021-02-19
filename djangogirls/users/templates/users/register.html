@@ -1,0 +1,75 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<h1>Registration Page</h1>
+{% comment %} Truthy statement; if the user tries to enter a username that is taken, they will be informed.  {% endcomment %}
+{% if display %}
+<div id="error_message">
+    {{display}}
+</div>
+{% endif %}
+<div id="error_message" style="display:none">
+</div>
+<form action="{% url 'users:register_user' %}" method="post">
+    {% csrf_token %}
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-md-8">
+                <label for="username">Please enter a username</label>
+                <input id="username" name="username" type="text" class="form-control" aria-describedby="emailHelp">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-8">
+                <label for="password">Please enter a password</label>
+                <input id="password" name="password" type="password" class="form-control" aria-describedby="emailHelp">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-8">
+                <label for="password_verification">Please re-enter your password</label>
+                <input id="password_verification" type="password" class="form-control" aria-describedby="emailHelp">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-8">
+                <label for="email" class="form-label">Email address</label>
+                <input id="email" name='email' type="email" class="form-control" aria-describedby="emailHelp">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-8">
+                <button id="go_button" type="submit" class="btn btn-warning">Go</button>
+            </div>
+        </div>
+    </div>
+</form>
+<div>
+    Already have an account with us?
+    <a href="{% url 'users:login' %}">Login</a>
+</div>
+
+
+
+<script type ="text/javascript">
+// target the password and verified password
+let input_primary_password = document.querySelector('#password')
+let input_verified_password = document.querySelector('#password_verification')
+let btn_go = document.querySelector('#go_button')
+let error_message = document.querySelector('#error_message')
+
+//check if the verified password is correct when the user hits the button
+btn_go.addEventListener('click', function(event){
+    if (input_primary_password.value != input_verified_password.value){
+        error_message.innerText = "The passwords don't match"
+        error_message.style.display = ''
+        //preventDefault() stops the event from happening, so the form can't be submitted
+        event.preventDefault()
+    }
+})
+</script>
+
+{% endblock %}
