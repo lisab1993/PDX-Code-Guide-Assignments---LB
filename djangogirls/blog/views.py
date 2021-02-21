@@ -1,10 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .models import Post, BlogPost
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
 from django.utils import timezone
 from .forms import PostForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
 
 
 def post_list(request):
@@ -57,10 +58,6 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
 
-
-
-
-
     # author = models.ForeignKey(User, on_delete=models.PROTECT)
     # title = models.CharField(max_length=200)
     # text = models.TextField()
@@ -72,6 +69,7 @@ def post_edit(request, pk):
 @login_required
 def profile(request):
     #  return HttpResponse('hello')
+    user = authenticate(username=request.user, password=request.user)
     logged_user = request.user
     user_posts = Post.objects.filter(author = logged_user)
     
