@@ -1,7 +1,7 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-<h1>Registration Page</h1>
+<h1>Sign Up Here</h1>
 {% comment %} Truthy statement; if the user tries to enter a username that is taken, they will be informed.  {% endcomment %}
 {% if display %}
 <div id="error_message">
@@ -47,9 +47,13 @@
         </div>
     </div>
 </form>
-<div>
-    Already have an account with us?
-    <a href="{% url 'users:login' %}">Login</a>
+<div class="row">
+    <div class="col-md-3">
+        <p>Already have an account with us?</p>
+    </div>
+    <div class="col-md-3">
+        <button type="button" href="{% url 'users:login' %}" class="btn btn-info">Login</button>
+    </div>
 </div>
 
 

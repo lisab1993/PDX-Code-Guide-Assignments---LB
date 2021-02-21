@@ -1,16 +1,18 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-<h1>post_detail.html</h1>
 <div class="container">
+        <h2>{{ post.title }}</h2>
+        <p 
+        class="title">Written by {{post.author}}</p>
+        <img src="{{post.image.url}}">
+        
     <div>
         {% if post.published_date %}
         <div>
-            {{ post.published_date }}
+            <p>{{ post.published_date }}</p>
         </div>
         {% endif %}
-        <h2>Written by {{post.author}}</h2>
-        <h2>{{ post.title }}</h2>
         <p>{{ post.text|linebreaksbr }}</p>
     </div>
 </div>

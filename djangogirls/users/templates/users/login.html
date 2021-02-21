@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container">
-    <h1>Login Page</h1>
+    <h1>Login Here</h1>
     {% if display %}
     <div>{{display}}</div>
     {% endif %}
@@ -10,11 +10,11 @@
         {%csrf_token%}
         <input type="text" name="username" placeholder="Enter you username"/>
         <input type="password" name="password" placeholder = "password"/>
-        <button type="submit">Go</button>
+        <button type="submit" class="btn btn-info create-account">Go</button>
     </form>
     <div>
-        Don't have an account yet? 
-        <a href="{% url 'users:register_user' %}">Create an Account</a>
+       <span class="title">Don't have an account yet? </span> 
+        <a class="links" href="{% url 'users:register_user' %}">Create an Account</a>
     </div>
 </div>
 {% endblock %}

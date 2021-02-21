@@ -7,6 +7,7 @@ class Post (models.Model):
     author = models.ForeignKey(User, on_delete=models.PROTECT)
     title = models.CharField(max_length=200)
     text = models.TextField()
+    image = models.ImageField( upload_to='images/', null=True, blank=True)
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
 
@@ -20,7 +21,6 @@ class Post (models.Model):
 class BlogPost(models.Model):
     title = models.CharField(max_length=350)
     body = models.TextField()
-    image = models.ImageField( upload_to='images/', null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     public = models.BooleanField(default=False)
     date_created = models.DateTimeField(auto_now_add=True)

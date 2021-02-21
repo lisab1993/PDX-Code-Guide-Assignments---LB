@@ -16,26 +16,28 @@
     <!-- Google Fonts  -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Laila:wght@500&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
         <div class="row">
+            {% csrf_token %}
             <div class="col-md-3">
                 {% if user.is_authenticated %}
-                Welcome {{user.username}}
-                <a href="{% url 'users:logout_user' %}">Logout</a>
+                <span class="title">Welcome {{user.username}}</span>
+                <a class="links" href="{% url 'users:logout_user' %}">Logout</a>
                 {% else %}
-                <a href="{% url 'users:login' %}">Login</a>
-                <a href="{% url 'users:registration' %}">Sign Up</a>
+                <a class="links pe-3" href="{% url 'users:login' %}">Login</a>
+                <a class="links" href="{% url 'users:registration' %}">Sign Up</a>
                 {% endif %}
             </div>
         </div>
         <div class="row header">
             <div class="col-md-2 dropdown nav-button">
-                <button class="btn btn-secondary" type="button" id="dropdownMenuButton1"
-                    data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
                     ☰
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -45,7 +47,7 @@
                 </ul>
             </div>
             <div class="col-md-10">
-                <h1>Lisa's Blog</h1>
+                <h1>The Blog of Bloggers</h1>
             </div>
         </div>
 
