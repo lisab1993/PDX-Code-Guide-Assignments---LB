@@ -24,7 +24,8 @@ def register_user(request):
     if User.objects.filter(username=username).exists():
         return render(request, 'users/register.html', {'display': 'Username not available'})
 
-
+    if len(password)<6:
+        return render(request, 'users/register.html', {'display': 'Passwords must be at least 6 characters long'})
 
     # create a variable with the components needed to log in.
     user = User.objects.create_user(username=username, password=password, email=email)

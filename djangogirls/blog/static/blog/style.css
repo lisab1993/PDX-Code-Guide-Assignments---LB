@@ -51,7 +51,6 @@
     font-size: 25px;
     font-family: 'Akaya Telivigala', cursive; 
     color: #3d977c;
-    max-width: 250px;
 }
 
 .navigation-options {
@@ -75,6 +74,17 @@
     margin-right: 12px;
 }
 
+.warning-message {
+    font-size: 18px;
+    font-family: 'Akaya Telivigala', cursive; 
+    color: #3d977c !important;
+}
+
+.login-go-button {
+    max-height: 33px !important;
+    margin-bottom: 3px;
+    padding-bottom: 23px;
+}
 
 html, body {
     margin: 0;

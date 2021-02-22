@@ -4,7 +4,7 @@
 <h1>Sign Up Here</h1>
 {% comment %} Truthy statement; if the user tries to enter a username that is taken, they will be informed.  {% endcomment %}
 {% if display %}
-<div id="error_message">
+<div class="warning-message" id="error_message">
     {{display}}
 </div>
 {% endif %}
@@ -18,33 +18,37 @@
     <div class="container">
         <div class="row mb-3">
             <div class="col-md-8">
-                <label for="username">Please enter a username</label>
-                <input id="username" name="username" type="text" class="form-control" aria-describedby="emailHelp">
+                <label class="smaller-title" for="username">Please enter a username</label>
+                <div><input required class="smaller-title" id="username" name="username" type="text" class="form-control" aria-describedby="emailHelp"></div>
             </div>
+            <br>
         </div>
 
         {% comment %} Password  {% endcomment %}
         <div class="row mb-3">
             <div class="col-md-8">
-                <label for="password">Please enter a password</label>
-                <input id="password" name="password" type="password" class="form-control" aria-describedby="emailHelp">
+                <label class="smaller-title" for="password">Please enter a password</label>
+                <div><input required class="smaller-title" id="password" name="password" type="password" class="form-control" aria-describedby="emailHelp"></div>
             </div>
+            <br>
         </div>
 
         {% comment %} Password Verification  {% endcomment %}
         <div class="row mb-3">
             <div class="col-md-8">
-                <label for="password_verification">Please re-enter your password</label>
-                <input id="password_verification" type="password" class="form-control" aria-describedby="emailHelp">
+                <label class="smaller-title" for="password_verification">Please re-enter your password</label>
+                <div><input required class="smaller-title" id="password_verification" type="password" class="form-control" aria-describedby="emailHelp"></div>
             </div>
+            <br>
         </div>
 
         {% comment %} Email Address {% endcomment %}
         <div class="row mb-3">
             <div class="col-md-8">
-                <label for="email" class="form-label">Email address</label>
-                <input id="email" name='email' type="email" class="form-control" aria-describedby="emailHelp">
+                <label class="smaller-title" for="email" class="form-label">Email address</label>
+                <div><input required class="smaller-title" id="email" name='email' type="email" class="form-control" aria-describedby="emailHelp"></div>
             </div>
+            <br>
         </div>
 
         {% comment %} Go Button  {% endcomment %}
@@ -55,14 +59,16 @@
         </div>
     </div>
 </form>
+<hr>
+<br>
 
 {% comment %} Option to login or create an account  {% endcomment %}
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-5">
         <p>Already have an account with us?</p>
     </div>
     <div class="col-md-3">
-        <button type="button" href="{% url 'users:login' %}" class="btn btn-info">Login</button>
+        <a class="smaller-links" href="{% url 'users:login' %}">Login Here!</a>
     </div>
 </div>
 

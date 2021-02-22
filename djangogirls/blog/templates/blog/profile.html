@@ -8,14 +8,16 @@
 
 
 {% for post in user_posts %}
-<div class="row">
-    <a class="col-md-4 my-1 profile-title-links"
-            href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a>
-
-    <a class="col-md-3 btn btn-warning edit-button" type="button" href="{% url 'blog:post_edit' pk=post.pk %}"
-        >Edit
-    </a>
-    <hr>
+<div class="row p-2">
+    <!-- Post Titles  -->
+    <a class="col-md-6 col-sm-12 my-1 p-0 profile-title-links"
+        href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a>
+    <!-- Post Edit Button  -->
+    <a class="col-md-3 col-sm-6  btn btn-warning edit-button" type="button"
+        href="{% url 'blog:post_edit' pk=post.pk %}">Edit</a>
+    <!-- Post Delete Button  -->
+    <a class="col-md-3 col-sm-6 btn btn-warning edit-button" href="{% url 'blog:delete' pk=post.pk %}">Delete</a>
+    <hr class="mt-2">
 </div>
 {% endfor %}
 

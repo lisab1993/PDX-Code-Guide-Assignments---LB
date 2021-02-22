@@ -4,17 +4,17 @@
 <div class="container">
     <h1>Login Here</h1>
     {% if display %}
-    <div>{{display}}</div>
+    <div class="smaller-title">{{display}}</div>
     {% endif %}
     <form action="{% url 'users:login_user' %}" method='post'>
         {%csrf_token%}
-        <input type="text" name="username" placeholder="Enter you username"/>
-        <input type="password" name="password" placeholder = "password"/>
-        <button type="submit" class="btn btn-info create-account">Go</button>
+        <input class="smaller-title" type="text" name="username" placeholder="Enter you username"/>
+        <input class="smaller-title" type="password" name="password" placeholder = "password"/>
+        <button type="submit" class="btn btn-info login-go-button">Go</button>
     </form>
     <div>
-       <span class="title">Don't have an account yet? </span> 
-        <a class="links" href="{% url 'users:registration' %}">Create an Account</a>
+       <span class="smaller-title">Don't have an account yet? </span> 
+        <a class="smaller-links" href="{% url 'users:registration' %}">Create One Here!</a>
     </div>
 </div>
 {% endblock %}

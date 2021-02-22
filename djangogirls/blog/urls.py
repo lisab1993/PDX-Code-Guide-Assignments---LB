@@ -10,6 +10,8 @@ urlpatterns = [
     path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
     path('post/profile/', views.profile, name='profile'),
     path('post/create/', views.show_create, name="create"),
+    # localhost:8000/post/5/delete/
+    path('post/<int:pk>/delete/', views.delete, name="delete"),
 ] 
 
 #register 

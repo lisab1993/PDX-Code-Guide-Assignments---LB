@@ -18,7 +18,7 @@
                 {% if post.image %}
                 <img src="{{ post.image.url }}">
                 {% endif %}
-                <p>{{ post.text|truncatechars:50 }}</p>
+                <p>{{ post.text|truncatechars:50 }} <a href="{% url 'blog:post_detail' pk=post.pk %}">Read More</a></p>
             </div>
         </div>
     </div>
@@ -26,3 +26,5 @@
     {% endfor %}
 </div>
 {% endblock %}
+
+<a href="{% url 'blog:post_detail' pk=post.pk %}">Read More</a>
