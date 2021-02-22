@@ -24,20 +24,21 @@
     <div class="container">
         <div class="row">
             {% csrf_token %}
-            <div class="col-md-3">
                 {% if user.is_authenticated %}
-                <span class="title">Welcome {{user.username}}</span>
-                <a class="links" href="{% url 'users:logout_user' %}">Logout</a>
-                {% else %}
+                <div class="welcome-title">Welcome {{user.username}}</div>
+                <a class="base-logout" href="{% url 'users:logout_user' %}">Logout</a>
+        </div>
+        <div class="row">
+            {% else %}
+            <div class="col-3">
                 <a class="links pe-3" href="{% url 'users:login' %}">Login</a>
                 <a class="links" href="{% url 'users:registration' %}">Sign Up</a>
-                {% endif %}
             </div>
+            {% endif %}
         </div>
         <div class="row header">
-            <div class="col-md-2 dropdown nav-button">
-                <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
+            <div class="col-2 dropdown nav-button">
+                <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     ☰
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -46,8 +47,8 @@
                     <li><a class="dropdown-item" href="{% url 'blog:post_new' %}">New Post</a></li>
                 </ul>
             </div>
-            <div class="col-md-10">
-                <h1>The Blog of Bloggers</h1>
+            <div class="col-10">
+                <div class="site-title">The Blog of Bloggers</div>
             </div>
         </div>
 

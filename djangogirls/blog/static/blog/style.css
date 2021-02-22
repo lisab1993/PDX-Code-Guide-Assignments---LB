@@ -1,21 +1,43 @@
 
 .header {
-    background-color: rgb(166, 127, 238);
+    background-color: #80d0d3;
     padding-top: 25px;
     padding-bottom: 25px;
     margin-top: 10px;
 }
 
+.welcome-title {
+    font-size: 25px;
+    font-family: 'Akaya Telivigala', cursive; 
+    max-width: 210px;
+}
+
+.base-logout {
+    font-size: 25px;
+    font-family: 'Akaya Telivigala', cursive; 
+    color: #3d977c;
+    max-width: 150px;
+}
+
+.site-title {
+    font-family: 'Laila', sans-serif;
+    font-size: 25px; 
+}
 
 .title {
-    font-size: 25px;
+    font-size: 22px;
+    font-family: 'Akaya Telivigala', cursive; 
+}
+
+.smaller-title {
+    font-size: 18px;
     font-family: 'Akaya Telivigala', cursive; 
 }
 
 .links {
     font-size: 25px;
     font-family: 'Akaya Telivigala', cursive; 
-    color: rgb(166, 127, 238);
+    color: #3d977c;
 }
 
 
@@ -24,6 +46,7 @@
 html, body {
     margin: 0;
     height: 100%;
+    background-color: #EAE8E0;
 }
 
 h1 {
@@ -48,10 +71,13 @@ p {
 button {
     font-size: 23px;
     font-family: 'Akaya Telivigala', cursive; 
-    background-color: rgb(90, 172, 74) !important;
-    border-color: rgb(59, 121, 72) !important;
+    background-color: #F8A910!important;
+    border-color: #F8A910 !important;
 }
 
+img {
+    max-height: 250px;
+}
 
 
 

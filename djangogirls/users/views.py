@@ -23,17 +23,21 @@ def login_page(request):
 
 
 def register_user(request):
-    username = request.POST['username']
-    password = request.POST['password']
-    email = request.POST['email']
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        email = request.POST['email']
 
     # check if the username already exists
     if User.objects.filter(username=username).exists():
         return render(request, 'users/register.html', {'display': 'Username not available'})
 
+
+
     # create a variable with the components needed to log in.
-    user = User.objects.create_user(username, password=password, email=email)
+    user = User.objects.create_user(username=username, password=password, email=email)
     return HttpResponseRedirect(reverse('blog:post_list'))
+
 
 def login_user(request):
     username = request.POST['username']
@@ -43,9 +47,9 @@ def login_user(request):
         login(request, user)
         return HttpResponseRedirect(reverse('blog:post_list'))
     else:
-        return render(request, 'users/login.html', {'display':'The username or password is incorrect, please try again'})
+        return render(request, 'users/login.html', {'display': 'The username or password is incorrect, please try again'})
+
 
 def logout_user(request):
     logout(request)
     return HttpResponseRedirect(reverse('users:login'))
-

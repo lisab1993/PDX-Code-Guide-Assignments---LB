@@ -34,6 +34,7 @@ def post_new(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
+            post.image = request.FILES.get('image', None)
             post.published_date = timezone.now()
             post.save()
             return redirect('blog:post_list')
@@ -51,12 +52,19 @@ def post_edit(request, pk):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            post.published_date = timezone.now()
             post.image = request.FILES.get('image', None)
+            post.published_date = timezone.now()
             post.save()
             return redirect('blog:post_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
+
+    if 'clear_image' in request.POST:
+        post.image=None
+    elif 'image' in request.FILES:
+        image = request.FILES['image']
+        post.image = image
+
     return render(request, 'blog/post_edit.html', {'form': form})
 
     # author = models.ForeignKey(User, on_delete=models.PROTECT)
