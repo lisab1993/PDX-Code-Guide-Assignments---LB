@@ -10,8 +10,11 @@
 {% endif %}
 <div id="error_message" style="display:none">
 </div>
+
+{% comment %} Beginning of form  {% endcomment %}
 <form action="{% url 'users:register_user' %}" method="post">
     {% csrf_token %}
+    {% comment %} Username  {% endcomment %}
     <div class="container">
         <div class="row mb-3">
             <div class="col-md-8">
@@ -20,6 +23,7 @@
             </div>
         </div>
 
+        {% comment %} Password  {% endcomment %}
         <div class="row mb-3">
             <div class="col-md-8">
                 <label for="password">Please enter a password</label>
@@ -27,6 +31,7 @@
             </div>
         </div>
 
+        {% comment %} Password Verification  {% endcomment %}
         <div class="row mb-3">
             <div class="col-md-8">
                 <label for="password_verification">Please re-enter your password</label>
@@ -34,12 +39,15 @@
             </div>
         </div>
 
+        {% comment %} Email Address {% endcomment %}
         <div class="row mb-3">
             <div class="col-md-8">
                 <label for="email" class="form-label">Email address</label>
                 <input id="email" name='email' type="email" class="form-control" aria-describedby="emailHelp">
             </div>
         </div>
+
+        {% comment %} Go Button  {% endcomment %}
         <div class="row mb-3">
             <div class="col-md-8">
                 <button id="go_button" type="submit" class="btn btn-warning">Go</button>
@@ -47,6 +55,8 @@
         </div>
     </div>
 </form>
+
+{% comment %} Option to login or create an account  {% endcomment %}
 <div class="row">
     <div class="col-md-3">
         <p>Already have an account with us?</p>

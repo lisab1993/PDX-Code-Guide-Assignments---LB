@@ -2,11 +2,21 @@
 
 {% block content %}
 
-{% for post in user_posts %}
-<div>
-    <h2><a href="{% url 'blog:post_edit' pk=post.pk %}">{{post.title}}</a></h2>
+<div class="row post-title my-2">
+    <h2>Click on one of your posts to view it!</h2>
 </div>
 
+
+{% for post in user_posts %}
+<div class="row">
+    <a class="col-md-4 my-1 profile-title-links"
+            href="{% url 'blog:post_detail' pk=post.pk %}">{{post.title}}</a>
+
+    <a class="col-md-3 btn btn-warning edit-button" type="button" href="{% url 'blog:post_edit' pk=post.pk %}"
+        >Edit
+    </a>
+    <hr>
+</div>
 {% endfor %}
 
 {% endblock %}

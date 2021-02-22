@@ -67,12 +67,6 @@ def post_edit(request, pk):
 
     return render(request, 'blog/post_edit.html', {'form': form})
 
-    # author = models.ForeignKey(User, on_delete=models.PROTECT)
-    # title = models.CharField(max_length=200)
-    # text = models.TextField()
-    # created_date = models.DateTimeField(default=timezone.now)
-    # published_date = models.DateTimeField(blank=True, null=True)
-
 
 
 @login_required

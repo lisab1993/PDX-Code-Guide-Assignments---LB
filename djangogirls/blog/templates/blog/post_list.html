@@ -11,14 +11,14 @@
                 <div>
                     <h2><a href="{% url 'blog:post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
                 </div>
-                <p class="title">Author: {{ post.author }}</p>
+                <p class="post-title">Author: {{ post.author }}</p>
                 <div>
                     <p>Published: {{ post.published_date }}</p>
                 </div>
                 {% if post.image %}
                 <img src="{{ post.image.url }}">
                 {% endif %}
-                <p>{{ post.text|linebreaksbr }}</p>
+                <p>{{ post.text|truncatechars:50 }}</p>
             </div>
         </div>
     </div>

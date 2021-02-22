@@ -5,7 +5,7 @@
 <form action="{% url 'blog:post_new' %}" method="POST" enctype="multipart/form-data" >
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="btn btn-info">Save Post</button>
+    <button type="submit" class="btn btn-info mb-3">Save Post</button>
 </form>
 {% endblock %}
 

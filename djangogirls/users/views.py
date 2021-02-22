@@ -1,16 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.http import HttpResponse, HttpResponseRedirect
-# @login_required will require the user to be logged in for a view to work
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 
-# The last parameter, {}, is a place in which we can add some things for
-# the template to use. We need to give them names
-# (we will stick to 'posts' right now).: )
-# It should look like this: {'posts': posts}.
-# Please note that the part before : is a string; you need to wrap it with quotes: ''.
-
-# Create your views here.
 
 
 def registration_page(request):

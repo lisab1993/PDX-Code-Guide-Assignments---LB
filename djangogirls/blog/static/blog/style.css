@@ -6,7 +6,7 @@
     margin-top: 10px;
 }
 
-.welcome-title {
+.welcome-user {
     font-size: 25px;
     font-family: 'Akaya Telivigala', cursive; 
     max-width: 210px;
@@ -24,14 +24,15 @@
     font-size: 25px; 
 }
 
-.title {
-    font-size: 22px;
+.post-title {
+    font-size: 20px;
     font-family: 'Akaya Telivigala', cursive; 
 }
 
 .smaller-title {
     font-size: 18px;
     font-family: 'Akaya Telivigala', cursive; 
+    color: black !important;
 }
 
 .links {
@@ -40,7 +41,39 @@
     color: #3d977c;
 }
 
+.smaller-links {
+    color: #3d977c;
+    font-family: 'Akaya Telivigala', cursive; 
+    margin-bottom: 15px;
+}
 
+.profile-title-links {
+    font-size: 25px;
+    font-family: 'Akaya Telivigala', cursive; 
+    color: #3d977c;
+    max-width: 250px;
+}
+
+.navigation-options {
+    font-family: 'Akaya Telivigala', cursive; 
+}
+
+.navigation-unicode-lines {
+    color: black;
+}
+
+.dropdown-menu-background {
+    background-color: #e4eeeb;
+}
+
+.edit-button {
+    height: 40px;
+    background-color: #F8A910;
+    width: 80px;
+    border-radius: 4px;
+    font-family: 'Akaya Telivigala', cursive; 
+    margin-right: 12px;
+}
 
 
 html, body {
@@ -69,17 +102,24 @@ p {
     font-family: 'Akaya Telivigala', cursive; }
 
 button {
-    font-size: 23px;
+    font-size: 20px;
     font-family: 'Akaya Telivigala', cursive; 
     background-color: #F8A910!important;
     border-color: #F8A910 !important;
 }
 
 img {
-    max-height: 250px;
+    max-width: 200px;
+    
 }
 
-
+footer {
+    background-color: #BDDFE3;
+    font-family: 'Akaya Telivigala', cursive;
+    font-size: 18px;
+    height: 130px;
+    text-align: center;
+}
 
 
 
