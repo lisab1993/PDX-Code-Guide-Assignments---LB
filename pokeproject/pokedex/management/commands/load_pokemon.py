@@ -5,6 +5,8 @@ from io import BytesIO
 from django.core import files
 import json
 
+#This command will load the pokemon.json file into the database.
+
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
