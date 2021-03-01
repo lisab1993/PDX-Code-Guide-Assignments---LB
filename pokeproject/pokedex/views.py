@@ -1,3 +1,4 @@
+ 
 from django.shortcuts import render
 from .models import Pokemon
 from django.http import HttpResponse,  JsonResponse
@@ -22,6 +23,8 @@ def get_pokemon(request):
 
     # grab all of the pokemon
     monsters = Pokemon.objects.order_by('name')
+
+    types = Pokemon.objects.order_by('name').filter('types')
     #total number of pages starts at 1
     num_pages = 1
     #get the number of monsters
@@ -47,12 +50,12 @@ def get_pokemon(request):
             'weight': monster.weight,
             'image_front': monster.image_front,
             'image_back': monster.image_back,
-            'types': monster.types,
             'url': monster.url,
         })
 
+    
+
+
     # return the data in json format
-    return JsonResponse({'monsters': pokemon_list, 'num_pages': num_pages, 'total_monsters': total_monsters})
-
-
+    return JsonResponse({'monsters': pokemon_list, 'num_pages': num_pages, 'types':types})
 

@@ -22,16 +22,25 @@
     <h1 class="my-3">Pokedex Project</h1>
 
     <div id="app">
-      <!-- Generate pokemon cards  -->
-      <div v-for="(monster, index_vue) in monsters">
-        <div class="card mb-3" style="width: 18rem;">
+       {% comment %} Generate pokemon cards   {% endcomment %}
+      <div class="card mb-3" style="width: 18rem;">
+        <div v-for="(monster, index_vue) in monsters">
           <img v-bind:src="monster.image_front" class="card-img-top" alt="pokemon picture">
           <div class="card-body">
             <h5 class="card-title">[[monster.name]]</h5>
             <p class="card-text">Height: [[ monster.height ]]</p>
             <p class="card-text">Weight: [[ monster.weight ]]</p>
-            <p class="card-text">Types: [[ monster.types ]]</p>
             <a class="card-text" v-bind:href="[[monster.url]]"> [[ monster.name ]] Wiki</a>
+          </div>
+        </div>
+        {% comment %} Generate types  {% endcomment %}
+        <div v-for="(type, index_vue) in types">
+          <div class="card-body">
+            <p class="card-text">
+              Types: [[ type.types ]]
+            </p>
+          </div>
+          <div>
 
           </div>
         </div>
@@ -39,80 +48,82 @@
 
       <!-- Pagination -->
       <div class="pagination mb-5">
-        <span class="btn" v-on:click="lastPage"><<</span>
-        <span class="btn" v-on:click="setPage(page)" v-for="page in num_pages" v-bind:class="{highlightedPage: page == current_page}">[[ page ]]</span>
-        <span class="btn" v-on:click="nextPage">>></span>
+        <span class="btn" v-on:click="lastPage">
+          <<< /span>
+            <span class="btn" v-on:click="setPage(page)" v-for="page in num_pages"
+              v-bind:class="{highlightedPage: page == current_page}">[[ page ]]</span>
+            <span class="btn" v-on:click="nextPage">>></span>
       </div>
 
 
-      
-    </div>
-  </div>
-
-  <!-- Vue JS  -->
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-  <!-- Axios CDN  -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
 
 
-  <script>
-    let app = new Vue({
-      el: '#app',
-      delimiters: ['[[', ']]'],
-      data: {
-        monsters: [],
-        current_page: 1,
-        num_pages: 1,
-      },
-      methods: {
-        getPokemon: function () {
-          // accesses the data from the view get_pokemon
-          axios({
-            url: "{% url 'pokedex:get_pokemon' %}",
-            method: 'get',
-            params: {
-              page: this.current_page
-            }
-          }).then(response => {
-            console.log(response.data)
-            this.monsters = response.data.monsters
-            this.num_pages = response.data.num_pages
-          })
-        },
+      <!-- Vue JS  -->
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+      <!-- Axios CDN  -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+
+
+      <script>
+        let app = new Vue({
+          el: '#app',
+          delimiters: ['[[', ']]'],
+          data: {
+            monsters: [],
+            current_page: 1,
+            num_pages: 1,
+            types: [],
+          },
+          methods: {
+            getPokemon: function () {
+              // accesses the data from the view get_pokemon
+              axios({
+                url: "{% url 'pokedex:get_pokemon' %}",
+                method: 'get',
+                params: {
+                  page: this.current_page
+                }
+              }).then(response => {
+                console.log(response.data)
+                this.monsters = response.data.monsters
+                this.num_pages = response.data.num_pages
+                this.types = " ".join(response.data.types)
+              })
+            }, 
         lastPage: function () {
-          //if the user is currently on any page other than the first,
-          //then the current page will decrease to the previous page
-          if (this.current_page > 1) {
-            this.current_page -= 1
+              //if the user is currently on any page other than the first,
+              //then the current page will decrease to the previous page
+              if (this.current_page > 1) {
+                this.current_page -= 1
+                this.getPokemon()
+              }
+            },
+            setPage: function (page) {
+              //the page numbers will appear as little numbered buttons 
+              //that can be clicked on to jump to any other page
+              this.current_page = page
+              this.getPokemon()
+            },
+            nextPage: function (page) {
+              //if the user is on any page other than the last, 
+              //then the current page will increase to the next page
+              if (this.current_page < this.num_pages) {
+                this.current_page += 1
+                this.getPokemon()
+              }
+            }
+          },
+          created: function () {
+            //upon loading the app, run the getPokemon function to populate the json data
             this.getPokemon()
           }
-        },
-        setPage: function (page) {
-          //the page numbers will appear as little numbered buttons 
-          //that can be clicked on to jump to any other page
-          this.current_page = page
-          this.getPokemon()
-        },
-        nextPage: function(page) {
-          //if the user is on any page other than the last, 
-          //then the current page will increase to the next page
-          if (this.current_page < this.num_pages) {
-            this.current_page += 1
-            this.getPokemon()
-          }
-        }
-      },
-      created: function () {
-        //upon loading the app, run the getPokemon function to populate the json data
-        this.getPokemon()
-      }
-    })
-  </script>
+        })
+      </script>
 
-    <!--  Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-    crossorigin="anonymous"></script>
+      <!--  Bootstrap JS -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

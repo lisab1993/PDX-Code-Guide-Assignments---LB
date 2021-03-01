@@ -31,7 +31,7 @@ class Command(BaseCommand):
             weight = monster['weight']
             image_front = monster['image_front']
             image_back = monster['image_back']
-            types = monster['types']
+            types = ", ".join(monster['types'])
             url = monster['url']
             monster = Pokemon(number=number, name=name, height=height,
                               weight=weight, image_front=image_front, image_back=image_back,
