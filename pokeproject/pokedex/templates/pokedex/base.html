@@ -1,0 +1,64 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <!-- Custom CSS  -->
+    <link rel="stylesheet" href="{% static 'pokedex/style.css' %}">
+
+    <title>Pokedex Project</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Pokedex Project</h1>
+
+        <div id="app">
+            <div v-for="monster in monsters">
+                <h3>[[ monster.name ]]</h3>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Vue JS  -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <!--  Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+
+    <script>
+        let app = new Vue({
+            el: '#app',
+            delimiters: ['[[', ']]'],
+            data: {
+                monsters: []
+            },
+            methods: {
+                getPokemon: function () {
+                    axios({
+                        url: "{% url 'pokedex:get_pokemon' %}",
+                        method: 'get',
+                    }).then(response => {
+                        console.log(response.data)
+                        this.pokemon = response.data.pokemon
+                    })
+                },
+                created: function () {
+                    this.getPokemon()
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
