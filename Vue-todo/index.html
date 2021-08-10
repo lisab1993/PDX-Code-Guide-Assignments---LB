@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>Vue Todo List</h1>
+        <div>
+            <input type='text' v-model="inputText" placeholder="wash the dishes"/>
+            <button type="button" v-on:click="addTask()">Add</button>
+        </div>
+
+        <p>IncompleteTasks</p>
+        <div v-for="(item, index) in incompleteItems">
+            <div>
+            {{ item.text }}
+            <button type="button" v-on:click="completeTask(index)">Complete</button>
+            <button type="button" v-on:click="deleteIncomplete(index)">Delete</button>
+        </div>
+        </div>
+
+        <p>Complete Tasks</p>
+        <div v-for="(item, index) in completeItems">
+            <div>
+                {{item.text}}
+                <button type="button" v-on:click="deleteComplete(index)">Delete</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Vue CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- Page JS -->
+    <script src="index.js"></script>
+</body>
+</html>

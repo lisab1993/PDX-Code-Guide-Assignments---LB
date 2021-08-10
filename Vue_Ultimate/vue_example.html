@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+
+        <!-- Reads the sayHello data variable in vue and displays the value (in this case, a string that says 'Hello from Vue!!') -->
+        <div>
+            This is a basic render. This shows a message that has been hard-coded into Vue.
+            {{sayHello}}
+        </div>
+        <br/>
+        <br/>
+        <!-- v-model grabs every keystroke the user makes, and updates the data portion of vue  -->
+        <div>
+            This is a basic input in Vue:
+            <label for='nameEntry'>Please enter your name:</label>
+            <input v-model='userName' type='text' id='nameEntry'>
+        </div>
+
+        <div>
+            <label for='currentTyping'>This is the current state of the userName data variable. It updates everytime you type something. </label>
+            <div id='currentTyping'>{{userName}}</div>
+        </div>
+        <br/>
+        <br/>
+
+        <!-- The list of options will be populated with the colors array from the vue data -->
+        <!-- We use v-bind because we only want to take information from vue and use it for an html attribute -->
+        <!-- In this case, that attribute is value. The v-bind isn't what gives the dropdowns their names, {{color}} does that.  -->
+        <!-- When a user selects a color, that value can then be used to turn that option into user input.   -->
+        <div>
+            <label for='dropDown'>Drop Downs:</label>
+            <select v-model='input_color'>
+                <option 
+                v-for='color in colors' v-bind:value='color'
+                id='dropDown'
+                >
+                    {{color}}
+                </option>
+            </select>
+        </div>
+        <div>
+            The color you select will appear here: {{input_color}}
+        </div>
+        <br/>
+        <br/>
+
+
+
+
+
+    </div>
+
+
+    <!-- Vue -->
+    <script src='https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js'></script>
+    <!-- Axios -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js'
+        integrity='sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=='
+        crossorigin='anonymous'></script>
+    <!-- Page JS -->
+    <script src='vue_example.js'></script>
+</body>
+
+</html>
