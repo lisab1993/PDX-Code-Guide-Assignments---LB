@@ -5,6 +5,10 @@ let app = new Vue({
         sayHello: 'Hello from Vue!!',
         colors: ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet'],
         userName: '',
-        input_color: '',
+        chosenColorDynamic: 'Yellow',
+        chosenColorStatic: '',
+        chosenRadioAnimalStatic: '',
+        animals: ['Quokka', 'Sugar Glider', 'Mantis Shrimp'],
+        chosenRadioAnimalDynamic: 'Sugar Glider',
     }
 })

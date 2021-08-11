@@ -10,53 +10,116 @@
 
 <body>
     <div id='app'>
-
         <!-- Reads the sayHello data variable in vue and displays the value (in this case, a string that says 'Hello from Vue!!') -->
+        <!-- To render data from vue, place the variable in {{double curly brackets}} -->
         <div>
+            <h2>Rendering from Vue</h2>
             This is a basic render. This shows a message that has been hard-coded into Vue.
-            {{sayHello}}
         </div>
-        <br/>
-        <br/>
-        <!-- v-model grabs every keystroke the user makes, and updates the data portion of vue  -->
+
         <div>
+            The message is: {{sayHello}}
+        </div>
+        <br />
+        <br />
+        <!-- v-model grabs every keystroke the user makes, and updates the state of nameEntry in the vue app as the user is typing.  -->
+        <div>
+            <h2>Text Input</h2>
             This is a basic input in Vue:
             <label for='nameEntry'>Please enter your name:</label>
             <input v-model='userName' type='text' id='nameEntry'>
         </div>
+        <!-- Here we can render userName on the page. The data passes from the user, through the v-model to the vue app, and then is brought back out on the browser -->
+        <div>
+            <label for='currentTyping'>This is the current state of the userName data variable. It updates everytime you
+                type something. </label>
+            <div id='currentTyping'>
+                {{userName}}
+            </div>
+        </div>
+        <br />
+        <br />
+
+
+        <!-- Use v-model to connect the select element to chosenColorDynamic from data. In the vue app, chosenColorDynamic has been hard-coded to begin with yellow. This means that yellow will be pre-selected when the page loads. If it were a blank string, there wouldn't be a default value; this is the vue way to set an option to 'selected'. -->
+        <!-- v-for allows us to run a for loop in html. It loops over the colors array just like regular javascript would -->
+        <!-- We need to use v-bind to add the attribute 'value' so that vue can read the value of the selected color, and use v-model to set our chosenColorDynamic. If vue didn't need access to the value, we wouldn't v-bind it  -->
+        <div>
+            <h2>Select and Options (Dynamic)</h2>
+            <label for='dropDown'>Drop Downs:
+                <select v-model='chosenColorDynamic'>
+                    <option v-for='color in colors' v-bind:value='color' id='dropDown'>
+                        {{color}}
+                    </option>
+                </select>
+            </label>
+        </div>
+        <div>
+            The color you select will appear here: {{chosenColorDynamic}}
+        </div>
+        <br />
+        <br />
+
+
+        <!-- Here's what a drop down looks like if we hard-code it instead. -->
+        <!-- We still can't set an option to selected like we would in normal html, but we can set it in the vue app just like we did with the dynamic select.-->
+        <!-- Alternatively, we can add a decorative option to tell the user what to do.  -->
+        <div>
+            <h2>Select and Options (Hard-Coded)</h2>
+            <label>
+                <select v-model='chosenColorStatic'>
+                    <option disabled value="">Please select one</option>
+                    <option>Cyan</option>
+                    <option>Magenta</option>
+                    <option>Maroon</option>
+                </select>
+            </label>
+        </div>
+        <div>
+            The color you select will appear here: {{chosenColorStatic}}
+        </div>
+        <br />
+        <br />
+
+
+        <!-- To dynamically render radio buttons, we'll need to use v-bind on the value again, just like we did with the drop downs.  -->
+        <!-- If you want your label to appear to the right of the button, set the label name after the input. For the left, set it before the input -->
 
         <div>
-            <label for='currentTyping'>This is the current state of the userName data variable. It updates everytime you type something. </label>
-            <div id='currentTyping'>{{userName}}</div>
-        </div>
-        <br/>
-        <br/>
-
-        <!-- The list of options will be populated with the colors array from the vue data -->
-        <!-- We use v-bind because we only want to take information from vue and use it for an html attribute -->
-        <!-- In this case, that attribute is value. The v-bind isn't what gives the dropdowns their names, {{color}} does that.  -->
-        <!-- When a user selects a color, that value can then be used to turn that option into user input.   -->
-        <div>
-            <label for='dropDown'>Drop Downs:</label>
-            <select v-model='input_color'>
-                <option 
-                v-for='color in colors' v-bind:value='color'
-                id='dropDown'
-                >
-                    {{color}}
-                </option>
-            </select>
+            <h2>Radio Buttons (Dynamic)</h2>
+            <label v-for='animal in animals'>
+                <input type='radio' v-bind:value='animal' v-model='chosenRadioAnimalDynamic' v-bind:id='animal'>
+                {{animal}}
+            </label>
         </div>
         <div>
-            The color you select will appear here: {{input_color}}
+            You chose: {{chosenRadioAnimalDynamic}}
         </div>
-        <br/>
-        <br/>
+        <br />
+        <br />
 
 
+        <!--Notice how we didn't use v-bind with the value? That's because the radio buttons are hard-coded into the html. -->
+        <!-- Even though we made an input element for each animal, they can all have their v-model set to 'chosenRadioAnimalStatic'. In the vue app, chosenRadioAnimalStatic is a blank string waiting to be assigned a value, and it can come from any input we want. In this case, we want it to come from a radio button -->
+        <div>
+            <h2>Radio Buttons (Hard-Coded)</h2>
+            <label for='cats'>Cats
+                <input type='radio' id='cats' v-model='chosenRadioAnimalStatic' value='Cats'>
+            </label>
 
+            <label for='dogs'>Dogs
+                <input type='radio' id='dogs' v-model='chosenRadioAnimalStatic' value='Dogs'>
+            </label>
 
-
+            <label for='velociraptor'>Velociraptor
+                <input type='radio' id='velociraptor' v-model='chosenRadioAnimalStatic' value='Velociraptor'>
+            </label>
+        </div>
+        <div>
+            You chose: {{chosenRadioAnimalStatic}}
+        </div>
+        <br />
+        <br />
     </div>
 
 
