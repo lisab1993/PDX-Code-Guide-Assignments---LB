@@ -10,6 +10,7 @@
 
 <body>
     <div id='app'>
+        <h1>Inputs and Rendering Values</h1>
         <!-- Reads the sayHello data variable in vue and displays the value (in this case, a string that says 'Hello from Vue!!') -->
         <!-- To render data from vue, place the variable in {{double curly brackets}} -->
         <div>
@@ -120,12 +121,166 @@
         </div>
         <br />
         <br />
+
+        <!-- To pull from a list of dictionaries, loop over the dictionary and call the key; this will call the selected values from data  -->
+        <div>
+            <h2>Rendering From a List of Dictionaries</h2>
+            This is how to loop over a list of dictionaries and pull out the desired values:
+            <div v-for='contact in contacts'>
+                {{contact.name}}
+                {{contact.phoneNumber}}
+            </div>
+            <br />
+            <!-- To pull a specific entry, we need to first call the list by its name, in this case contacts. Since each dictionary is a list element, we can call it by its index; since Jane Doe is the second entry in the list, their dictionary is at index 1.   -->
+            <div>
+                <label for='wholeListOfDicts'>
+                    This is the whole list of dictionaries:
+                    <div id='wholeListOfDicts'>
+                        {{contacts}}
+                    </div>
+                </label>
+                <br />
+
+                <label for='individualDict'>
+                    This is an individual's dictionary at index 1:
+                    <div id='individualDict'>
+                        {{contacts[1]}}
+                    </div>
+                </label>
+                <br />
+
+                <label>
+                    This is the name from the dictionary at index 1:
+                    <div id='individualName'>
+                        {{contacts[1]['name']}}
+                    </div>
+                </label>
+            </div>
+        </div>
+        <br />
+        <br />
+
+        <!-- Checkboxes are boolean values (checked or unchecked, true or false) that can bound to data variables in vue just like text and radio buttons -->
+        <div>
+            <h2>Standard Checkboxes</h2>
+            <!-- In Vue, the checkMePlease variable is empty (which makes it falsey), so the checkbox will be unchecked -->
+            Load Unchecked Box:
+            <div>
+                <label for='checkMe'> Check Me Please!
+                    <input type='checkbox' id='checkMe' v-model='checkMePlease' />
+                </label>
+            </div>
+            <br />
+            <!-- uncheckMePlease has a value other than a blank string (which makes it truthy), so the checkbox will be checked -->
+            Load Checked Box:
+            <div>
+                <label for='uncheckMe'> Uncheck Me Please!
+                    <input type='checkbox' id='uncheckMe' v-model='uncheckMePlease' />
+                </label>
+            </div>
+            <br />
+            <!-- If two checkboxes are bound to the same data variable using v-model, they will both be checked/unchecked simultaneously -->
+            Two For One:
+            <div>
+                <label for='checkTwo'> Checking One will check Them Both
+                    <div id='checkTwo'>
+                        <input type='checkbox' v-model='checkTwo' />
+                        <input type='checkbox' v-model='checkTwo' />
+                    </div>
+                </label>
+            </div>
+            <br />
+
+            <!-- Just like with select inputs, we iterate over the redFruits list with a v-for, and generate our checkboxes from it. We used v-bind on the value because the list is coded in Vue -->
+            <div>
+                <h2>Rendering Checkboxes Dynamically</h2>
+                <div v-for='fruit in redFruits'>
+                    <label for='redFruits'> {{ fruit }}
+                        <input type='checkbox' id='redFruits' v-bind:value='fruit' v-model='checkedRedFruits' />
+                    </label>
+                    <br />
+                </div>
+                <!-- The checkedRedFruits list holds onto everything we selected from the redFruits list. Since we used v-bind on the value attribute, the values were loaded into the checkedRedFruits list. These boxes will show up in a column because they each have their own div element.-->
+                <div>
+                    The currently checked red fruits are:
+                    <div v-for='fruit in checkedRedFruits'>
+                        {{fruit}}
+                    </div>
+                </div>
+            </div>
+            <br />
+            <!-- These checkboxes are all bound to an empty list, so when the box is checked, its value is added to the list. We can see the state of the list as it updates below. These checkboxes will appear in a row because they're all held within the save div element.Because the checkboxes are being hard-coded into the html, we don't need to use v-bind on the value. -->
+            <div>
+                <h2>Rendering Checkboxes Hard-Coded</h2>
+                <label for='honeydew'>Honeydew
+                    <input type='checkbox' id='honeydew' value='Honeydew' v-model='checkedGreenFruits' />
+                </label>
+                <label for='greenGrapes'>Green Grapes
+                    <input type='checkbox' id='greenGrapes' value='Green Grapes' v-model='checkedGreenFruits' />
+                </label>
+                <label for='kiwi'>Kiwi
+                    <input type='checkbox' id='kiwi' value='Kiwi' v-model='checkedGreenFruits' />
+                </label>
+                <!-- By iterating over the checkedGreenFruits list using v-for, we can see the values in the list as we store them. When a box is checked, it's added to the list; when it's unchecked, it's removed from the list. v-model is what does this magic for us. -->
+                <div>
+                    The currently checked green fruits are:
+                    <div v-for='greenFruit in checkedGreenFruits'>
+                        {{greenFruit}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+
+
+
+        <h1>Applying Methods</h1>
+        <!-- We made a calculate function in the vue app, now we need to use it. It's nearly identical to onClick(), only now we say v-on:click='calculate'.  -->
+        <!-- Since our function is in vue, we need to add v-on so it can communicate with the html. -->
+        <div>
+            <h2>Using the calculate Method</h2>
+            <p>Enter two numbers to be added together.</p>
+            <label for='firstNum'>first number:
+                <input type='number' v-model='firstNum' id='firstNum'>
+            </label>
+            <label for='secondNum'>second number:
+                <input type='number' v-model='secondNum' id='secondNum'>
+            </label>
+            <button type='button' v-on:click='calculate()'>Use Calculate Method From Vue</button>
+        </div>
+        <div>
+            {{firstNum}} + {{secondNum}} = {{answer}}
+        </div>
+        <br />
+
+        <div>
+            <label for='inputTempNum'>
+                <input type='number' id='inputTempNum' v-model='inputTempNum' />
+                °
+            </label>
+            <select v-model='startingUnit'>
+                <option v-for='temp in tempList' v-bind:value='temp'>
+                    {{ temp }}
+                </option>
+            </select>
+            Converted to:
+            <select v-model='requestedUnit'>
+                <option v-for='temp in tempList' v-bind:value='temp'>
+                    {{temp}}
+                </option>
+            </select>
+            <button type='button' v-on:click='tempConversion()'>Convert</button>
+            {{convertedUnit}}°
+        </div>
+
+
+
     </div>
 
 
-    <!-- Vue -->
+    <!-- Vue CDN -->
     <script src='https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js'></script>
-    <!-- Axios -->
+    <!-- Axios CDN -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js'
         integrity='sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=='
         crossorigin='anonymous'></script>
