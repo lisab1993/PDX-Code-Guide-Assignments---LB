@@ -60,7 +60,7 @@ let app = new Vue({
         //Because the green fruits are hard-coded into the html, we only need a blank list to catch the selections
         checkedGreenFruits: [],
 
-        //these values act just like the others in our data. The only difference is that these are used in methods on this particular document. Look at the calculate function to see how it works.
+        //these values act just like the others in our data. The only difference is that these are used in methods on this particular document. Look at the functions below to see how they work.
         firstNum: '0.0',
         secondNum: '0.0',
         answer: '0.0',
@@ -69,8 +69,7 @@ let app = new Vue({
         tempList: ['Farenheit', 'Celsius', 'Kelvin'],
         startingUnit: 'Farenheit',
         requestedUnit: 'Celsius',
-        convertedUnit: ''
-
+        convertedUnit: '',
 
     },
     // methods is where you'll write your actual javaScript code. You can use the variables from data to get information from your user through the html file. Note that arrow functions will not work here. 

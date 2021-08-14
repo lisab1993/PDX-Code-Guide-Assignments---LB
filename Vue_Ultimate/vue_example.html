@@ -246,14 +246,16 @@
             <label for='secondNum'>second number:
                 <input type='number' v-model='secondNum' id='secondNum'>
             </label>
-            <button type='button' v-on:click='calculate()'>Use Calculate Method From Vue</button>
+            <button type='button' v-on:click='calculate()'>Calculate</button>
         </div>
         <div>
             {{firstNum}} + {{secondNum}} = {{answer}}
         </div>
         <br />
+        <br />
 
         <div>
+            <h2>Using the calculateTemp Method</h2>
             <label for='inputTempNum'>
                 <input type='number' id='inputTempNum' v-model='inputTempNum' />
                 °
@@ -272,6 +274,8 @@
             <button type='button' v-on:click='tempConversion()'>Convert</button>
             {{convertedUnit}}°
         </div>
+        <br />
+        <br />
 
 
 
