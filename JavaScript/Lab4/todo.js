@@ -28,8 +28,8 @@ btn_add_task.addEventListener("click", function (event) {
     let span_done_button = document.createElement("span")//creates a span, which is like a div, but smaller and in-line. 
     span_done_button.innerText = "Done"// the button will say done
     span_done_button.classList.add("btn", "btn-primary")//the span will have a button using bootstrap formatting for the blue primary button
-    first_tr.appendChild(btn_done_td)//add the table data with the button to the row
     btn_done_td.appendChild(span_done_button)//add the done button to the table data
+    first_tr.appendChild(btn_done_td)//add the table data with the button to the row
 
     //add all the new rows to the table body
     first_table_body.appendChild(first_tr)// the row with the data will be added to the first tbody.

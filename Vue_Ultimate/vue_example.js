@@ -61,10 +61,12 @@ let app = new Vue({
         checkedGreenFruits: [],
 
         //these values act just like the others in our data. The only difference is that these are used in methods on this particular document. Look at the functions below to see how they work.
+        //calculate()
         firstNum: '0.0',
         secondNum: '0.0',
         answer: '0.0',
 
+        //tempConversion()
         inputTempNum: '0.0',
         tempList: ['Farenheit', 'Celsius', 'Kelvin'],
         startingUnit: 'Farenheit',
