@@ -1,0 +1,52 @@
+/* html, body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 100%;
+    height: 100%;
+    background-color: pink;
+}
+textarea {
+    background-color: lightgreen;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 95%;
+    height: 95%;
+    display:block;
+    resize:none;
+} */
+
+html,body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(9, 18, 26);
+}
+
+textarea {
+    background-color: rgb(24, 24, 24);
+    resize: none;
+    width: 95%;
+    height: 95%;
+    caret-color: white;
+    color: white;
+    font-size: large;
+    border: 0;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    /* cursor: pointer; */
+}
+
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
