@@ -24,9 +24,14 @@ function condensor(target) {
 textInput.addEventListener('input', (event) => {
     //replace incoming text with hacker text from array
     event.preventDefault()
-    textInput.value = outputString += condArr[counter]
-    counter += 1
-    
+    if (counter != condArr.length){
+        textInput.value = outputString += condArr[counter]
+        counter += 1
+    } else {
+        counter = 0
+    }
+
+
     // console.log(condArr)
     // for (i in condArr){
     //     for (j in condArr[i]) {
