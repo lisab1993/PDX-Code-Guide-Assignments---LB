@@ -5,21 +5,45 @@ let counter = 0
 let outputString = ''
 let condArr = []
 
-function condensor(target) {
-    let newLineCounter = 0
-    for (i in textArr) {
-        let word = textArr[i]
-        if (word === target && textArr[i+1] === target){
-            newLineCounter += 1
-        } else if (word === target && textArr[i+1] !== target) {
-            textArr.push(target.repeat(newLineCounter+1))
-            newLineCounter = 0
-        } else {
-            condArr.push(word)
-        }
-    }
-}
+let settingsBtn = document.querySelector('#settings-btn')
+let popup = document.querySelector('#popup')
+let bgCol = document.querySelector('#bg-col')
+let taCol = document.querySelector('#ta-col')
+let fontCol = document.querySelector('#font-col')
 
+let theBody = document.getElementsByTagName('BODY')[0]
+let theArea = document.querySelector('#text-input')
+
+bgCol.addEventListener('input', (event) => {
+    event.preventDefault()
+    theBody.style.backgroundColor = bgCol.value
+    console.log(bgCol.value, 'bg color')
+})
+
+taCol.addEventListener('input', (event) => {
+    event.preventDefault()
+    theArea.style.backgroundColor = taCol.value
+    console.log(taCol.value, 'ta color')
+})
+
+fontCol.addEventListener('input', (event) => {
+    event.preventDefault()
+    theArea.style.color = fontCol.value
+    console.log(fontCol.value, 'font color')
+})
+
+
+
+settingsBtn.addEventListener('click', (event) => {
+    event.preventDefault()
+    let settings = window.getComputedStyle(popup)
+    settings = settings.display
+    if ( settings === 'none'){
+        popup.style.display = 'flex'
+    } else {
+        popup.style.display = 'none'
+    }
+})
 
 textInput.addEventListener('input', (event) => {
     //replace incoming text with hacker text from array
@@ -30,14 +54,6 @@ textInput.addEventListener('input', (event) => {
     } else {
         counter = 0
     }
-
-
-    // console.log(condArr)
-    // for (i in condArr){
-    //     for (j in condArr[i]) {
-    //         console.log(condArr[i].charCodeAt(j))
-    //     }
-    // }
 })
 
 
@@ -62,7 +78,20 @@ function finder(target, lower, upper) {
     }
 }
 
-
+function condensor(target) {
+    let newLineCounter = 0
+    for (i in textArr) {
+        let word = textArr[i]
+        if (word === target && textArr[i+1] === target){
+            newLineCounter += 1
+        } else if (word === target && textArr[i+1] !== target) {
+            textArr.push(target.repeat(newLineCounter+1))
+            newLineCounter = 0
+        } else {
+            condArr.push(word)
+        }
+    }
+}
 
 function separator(callback) {
     //turn the hacker code into a list of strings to be generated as typing happens
@@ -83,10 +112,9 @@ function separator(callback) {
             word = ''
         }
     }
+    //if there are several spaces next to each other, combine them into one string within the list; the argument is currently a whitespace, but anything can be passed in.
     callback(' ')
-    // console.log(textArr, 'textArr')
 }
-
 
 function loadup() {
     //text from the html is grabbed for later use, and cleared so the user doesn't immediately see it
