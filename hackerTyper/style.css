@@ -4,11 +4,11 @@ html,body {
     border: 0;
     width: 100%;
     height: 100%;
-    background-color: rgb(9, 18, 26);
+    background-color: rgb(29, 110, 192);
 }
 
 textarea {
-    background-color: rgb(24, 24, 24);
+    background-color: #21623e;
     resize: none;
     width: 95%;
     height: 95%;
@@ -36,11 +36,13 @@ textarea {
 .popup{
     display: none;
     position: absolute;
-    border: 1px solid pink;
-    background-color: lavenderblush;
+    border: 1px solid #ffdef3;
+    background-color: #ff61be;
     height: 20rem;
     width: 10rem;
     flex-direction: row;
+    top: 75px;
+    right: 75px;
 }
 
 .popleft {
@@ -66,4 +68,23 @@ textarea {
 .spacer{
     margin-top: 2.5px;
     margin-bottom: 2.5px;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    background-color: #ffdef3;
+    align-items: center;
+    justify-content: center;
+}
+
+#settings-btn {
+    position: absolute;
+    background-color: #ff61be;
+    right: 5rem;
+}
+
+img{
+    width: 3.2rem;
+    height: 3.3rem;
 }
