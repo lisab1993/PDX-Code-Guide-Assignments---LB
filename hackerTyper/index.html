@@ -7,35 +7,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hacker Typer</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@700&display=swap" rel="stylesheet">
 </head>
 
 <body onload="loadup()">
-    
-    <header>
+
+    <header id="header">
         <div>
-            <img src="images/dunce-hat.png">
+            <img class="hat" src="images/dunce-hat.png">
         </div>
         <h1>Dunce Hat Hacking</h1>
-        <button id="settings-btn">Settings</button>
+        <img class="hat" src="images/settings-light.png" id="settings-btn">
+        <!-- <button id="settings-btn">Settings</button> -->
         <div class="popup" id="popup">
             <div class="popleft">
+                <label class="spacer" for="hd-col">Header</label>
                 <label class="spacer" for="bg-col">Background</label>
                 <label class="spacer" for="ta-col">Textarea</label>
                 <label class="spacer" for="font-col">Font</label>
-                <label for="font-size">Font Size</label>
+                <label class="spacer" for="font-size">Font Size</label>
+                <label class="spacer" for="font-choice">Font</label>
             </div>
+
             <div class="popright">
-                <input id="bg-col" type="color">
-                <input id="ta-col" type="color">
-                <input id="font-col" type="color">
-                <select id="font-size">
+                <label id="hd-wrapper" class="color-wrapper">
+                    <input class="color-picker" id="hd-col" type="color">
+                </label>
+
+                <label id="bg-wrapper" class="color-wrapper">
+                    <input class="color-picker" id="bg-col" type="color">
+                </label>
+
+                <label id="ta-wrapper" class="color-wrapper">
+                    <input class="color-picker" id="ta-col" type="color">
+                </label>
+
+                <label id="font-wrapper" class="color-wrapper">
+                    <input class="color-picker" id="font-col" type="color">
+                </label>
+
+                <select class="dropdown" id="font-size">
                 </select>
+                <select class="dropdown" id="font-choice"></select>
             </div>
-            
-            
-            
+
+
+
         </div>
-        
+
     </header>
     <div class="container">
 
@@ -95,11 +117,14 @@
             }
             }
             }</textarea>
-        
+
     </div>
 
 
 
-        <script src="script.js"></script>
+    <script src="script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+
 </body>
+
 </html>

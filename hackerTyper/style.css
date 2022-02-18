@@ -4,23 +4,26 @@ html,body {
     border: 0;
     width: 100%;
     height: 100%;
-    background-color: rgb(29, 110, 192);
+    background-color: #00c2ba;
+}
+h1 {
+    font-family: 'Fuzzy Bubbles', cursive;
+    font-size: 2.7rem;
 }
 
 textarea {
-    background-color: #21623e;
+    background-color: #037a90;
     resize: none;
     width: 95%;
     height: 95%;
     caret-color: white;
-    color: white;
-    font-size: large;
+    color: #ff8fcf;
+    font-size: 14px;
     border: 0;
     outline: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
-    /* cursor: pointer; */
 }
 
 
@@ -35,21 +38,21 @@ textarea {
 
 .popup{
     display: none;
+    border: 1px solid black;
     position: absolute;
-    border: 1px solid #ffdef3;
     background-color: #ff61be;
-    height: 20rem;
-    width: 10rem;
+    height: 15rem;
+    width: 16rem;
     flex-direction: row;
     top: 75px;
     right: 75px;
 }
 
 .popleft {
-    display: flex;
     /* border: 1px solid black; */
-    height: 20rem;
-    width: 6rem;
+    display: flex;
+    height: 15rem;
+    width: 8rem;
     flex-flow: column wrap;
     justify-content: center;
     font-size: 1rem;
@@ -59,32 +62,53 @@ textarea {
 .popright{
     /* border: 1px solid black; */
     display: flex;
-    height: 20rem;
-    width: 4rem;
+    height: 15rem;
+    width: 8rem;
     flex-flow: column wrap;
     justify-content: center;
 }
 
 .spacer{
-    margin-top: 2.5px;
-    margin-bottom: 2.5px;
+    margin-top: .1rem;
+    margin-bottom: .1rem;
 }
 
 header {
     display: flex;
     flex-direction: row;
-    background-color: #ffdef3;
+    background-color: #ce96fb;
     align-items: center;
     justify-content: center;
 }
 
 #settings-btn {
     position: absolute;
-    background-color: #ff61be;
     right: 5rem;
 }
 
-img{
+.hat{
     width: 3.2rem;
     height: 3.3rem;
+    transform: rotate(-3deg);
 }
+
+.dropdown {
+    width: 7rem;
+    height: 1.1rem;
+    margin-bottom: .25rem;
+    border-radius: .3rem;
+}
+
+.color-picker {
+    visibility: hidden;
+}
+
+.color-wrapper {
+    /* background: linear-gradient(to bottom right, red, orange, yellow, green, blue, violet); */
+    height: 1.1rem;
+    width: 7rem;
+    border: .03rem solid black;
+    border-radius: .3rem;
+    /* box-shadow: 1px 4px 10px black; */
+    margin-bottom: .25rem;
+  }
